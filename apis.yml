@@ -3,7 +3,7 @@ url: >-
   https://raw.githubusercontent.com/api-evangelist/ticketmaster/refs/heads/main/apis.yml
 apis:
   - aid: ticketmaster:ticketmaster
-    name: Ticketmaster
+    name: Ticketmaster API
     tags:
       - API
     humanURL: https://developer.ticketmaster.com
