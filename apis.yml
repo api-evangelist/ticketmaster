@@ -36,7 +36,7 @@ type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 created: '2025-01-08'
-modified: '2025-03-02'
+modified: '2026-03-16'
 position: Consumer
 description: >-
   Ticketmaster is a ticketing service that provides access to live entertainment
@@ -49,5 +49,5 @@ description: >-
   fans with their favorite live entertainment experiences.
 maintainers:
   - FN: Kin Lane
-    email: info@apievangelist.com
+    email: kin@apievangelist.com
 specificationVersion: '0.19'
