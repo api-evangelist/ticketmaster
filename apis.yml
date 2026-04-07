@@ -5,11 +5,11 @@ apis:
   - aid: ticketmaster:ticketmaster
     name: Ticketmaster API
     tags:
-      - Tickets
       - Conerts
       - Events
-      - Venues
       - Performances
+      - Tickets
+      - Venues
     humanURL: https://developer.ticketmaster.com
     properties:
       - url: https://developer.ticketmaster.com
@@ -23,11 +23,11 @@ apis:
       as well as improve the overall user experience for buying tickets to live events.
 name: Ticketmaster
 tags:
-  - Tickets
   - Conerts
   - Events
-  - Venues
   - Performances
+  - Tickets
+  - Venues
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
