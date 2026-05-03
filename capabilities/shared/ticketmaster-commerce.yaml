@@ -1,0 +1,115 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: Ticketmaster Commerce API
+  description: >-
+    Ticketmaster Commerce API for retrieving ticket offers, pricing, and
+    availability information for events.
+  tags:
+    - Ticketmaster
+    - Commerce
+    - Tickets
+    - Pricing
+  created: "2026-05-03"
+  modified: "2026-05-03"
+
+binds:
+  - namespace: env
+    keys:
+      TICKETMASTER_API_KEY: TICKETMASTER_API_KEY
+
+capability:
+  consumes:
+    - type: http
+      namespace: ticketmaster-commerce
+      baseUri: https://app.ticketmaster.com/commerce/v2
+      description: Ticketmaster Commerce API for ticket offers and availability
+      authentication:
+        type: apikey
+        key: apikey
+        value: "{{TICKETMASTER_API_KEY}}"
+        placement: query
+      resources:
+        - name: event-offers
+          path: /events/{eventId}/offers.json
+          description: Event ticket offers
+          operations:
+            - name: get-event-offers
+              method: GET
+              description: Get ticket offers and pricing for an event
+              inputParameters:
+                - name: eventId
+                  in: path
+                  type: string
+                  required: true
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: event-availability
+          path: /events/{eventId}/availability.json
+          description: Event ticket availability
+          operations:
+            - name: get-event-availability
+              method: GET
+              description: Get ticket availability status for an event
+              inputParameters:
+                - name: eventId
+                  in: path
+                  type: string
+                  required: true
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8101
+      namespace: ticketmaster-commerce-rest
+      resources:
+        - path: /v1/events/{eventId}/offers
+          name: event-offers
+          description: Ticket offers
+          operations:
+            - method: GET
+              name: get-event-offers
+              description: Get ticket offers for an event
+              call: "ticketmaster-commerce.get-event-offers"
+              with:
+                eventId: "rest.eventId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9101
+      namespace: ticketmaster-commerce-mcp
+      transport: http
+      tools:
+        - name: get-event-offers
+          description: Get ticket pricing and offers for a Ticketmaster event
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "ticketmaster-commerce.get-event-offers"
+          with:
+            eventId: "tools.eventId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-event-availability
+          description: Check ticket availability status for a Ticketmaster event
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "ticketmaster-commerce.get-event-availability"
+          with:
+            eventId: "tools.eventId"
+          outputParameters:
+            - type: object
+              mapping: "$."

@@ -1,0 +1,253 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: Ticketmaster Event Discovery and Ticketing
+  description: >-
+    Unified capability for event discovery applications, travel platforms, and
+    entertainment apps to search and display live events, venues, and artists
+    from Ticketmaster alongside ticket availability and pricing. Combines the
+    Discovery API for event search with the Commerce API for real-time ticket
+    offers.
+  tags:
+    - Ticketmaster
+    - Commerce
+    - Entertainment
+    - Events
+    - Search
+    - Tickets
+    - Venues
+  created: "2026-05-03"
+  modified: "2026-05-03"
+
+binds:
+  - namespace: env
+    keys:
+      TICKETMASTER_API_KEY: TICKETMASTER_API_KEY
+
+capability:
+  consumes:
+    - import: ticketmaster-discovery
+      location: ./shared/ticketmaster-discovery.yaml
+    - import: ticketmaster-commerce
+      location: ./shared/ticketmaster-commerce.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: ticketmaster-api
+      description: >-
+        Unified REST API for Ticketmaster event discovery and ticket commerce.
+      resources:
+        - path: /v1/events
+          name: events
+          description: Live event search
+          operations:
+            - method: GET
+              name: search-events
+              description: Search for live events by keyword, location, date, and genre
+              call: "ticketmaster-discovery.search-events"
+              with:
+                keyword: "rest.keyword"
+                countryCode: "rest.countryCode"
+                city: "rest.city"
+                startDateTime: "rest.startDateTime"
+                endDateTime: "rest.endDateTime"
+                classificationName: "rest.classificationName"
+                size: "rest.size"
+                page: "rest.page"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/events/{id}
+          name: event-detail
+          description: Individual event details
+          operations:
+            - method: GET
+              name: get-event
+              description: Get details for a specific event
+              call: "ticketmaster-discovery.get-event"
+              with:
+                id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/events/{eventId}/offers
+          name: event-offers
+          description: Ticket offers for an event
+          operations:
+            - method: GET
+              name: get-event-offers
+              description: Get ticket pricing and offers for an event
+              call: "ticketmaster-commerce.get-event-offers"
+              with:
+                eventId: "rest.eventId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/events/{eventId}/availability
+          name: event-availability
+          description: Ticket availability for an event
+          operations:
+            - method: GET
+              name: get-event-availability
+              description: Check ticket availability for an event
+              call: "ticketmaster-commerce.get-event-availability"
+              with:
+                eventId: "rest.eventId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/attractions
+          name: attractions
+          description: Artist and attraction search
+          operations:
+            - method: GET
+              name: search-attractions
+              description: Search for artists, sports teams, and other attractions
+              call: "ticketmaster-discovery.search-attractions"
+              with:
+                keyword: "rest.keyword"
+                classificationName: "rest.classificationName"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/venues
+          name: venues
+          description: Venue search
+          operations:
+            - method: GET
+              name: search-venues
+              description: Search for event venues by name or location
+              call: "ticketmaster-discovery.search-venues"
+              with:
+                keyword: "rest.keyword"
+                city: "rest.city"
+                countryCode: "rest.countryCode"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/suggest
+          name: suggestions
+          description: Search autocomplete
+          operations:
+            - method: GET
+              name: get-suggestions
+              description: Get autocomplete suggestions for event, venue, or attraction searches
+              call: "ticketmaster-discovery.get-suggestions"
+              with:
+                keyword: "rest.keyword"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: ticketmaster-mcp
+      transport: http
+      description: >-
+        MCP server for AI-assisted live event discovery and ticket availability
+        queries across the Ticketmaster platform.
+      tools:
+        - name: search-events
+          description: >-
+            Search for live events on Ticketmaster by keyword, city, country,
+            date range, or classification (Music, Sports, Arts, Family)
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "ticketmaster-discovery.search-events"
+          with:
+            keyword: "tools.keyword"
+            countryCode: "tools.countryCode"
+            city: "tools.city"
+            startDateTime: "tools.startDateTime"
+            endDateTime: "tools.endDateTime"
+            classificationName: "tools.classificationName"
+            size: "tools.size"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-event
+          description: Get full details for a specific Ticketmaster event including dates, venue, and prices
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "ticketmaster-discovery.get-event"
+          with:
+            id: "tools.id"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-event-ticket-offers
+          description: Get ticket pricing tiers and purchase options for a specific Ticketmaster event
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "ticketmaster-commerce.get-event-offers"
+          with:
+            eventId: "tools.eventId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: check-ticket-availability
+          description: Check if tickets are still available for a Ticketmaster event
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "ticketmaster-commerce.get-event-availability"
+          with:
+            eventId: "tools.eventId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: search-artists-and-attractions
+          description: Search for artists, sports teams, and other attractions on Ticketmaster
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "ticketmaster-discovery.search-attractions"
+          with:
+            keyword: "tools.keyword"
+            classificationName: "tools.classificationName"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: search-venues
+          description: Find event venues near a city or geographic location
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "ticketmaster-discovery.search-venues"
+          with:
+            keyword: "tools.keyword"
+            city: "tools.city"
+            countryCode: "tools.countryCode"
+            latlong: "tools.latlong"
+            radius: "tools.radius"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-search-suggestions
+          description: Get autocomplete suggestions while users type event or venue search queries
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "ticketmaster-discovery.get-suggestions"
+          with:
+            keyword: "tools.keyword"
+            countryCode: "tools.countryCode"
+          outputParameters:
+            - type: object
+              mapping: "$."

@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/ticketmaster/main/json-schema/ticketmaster-venue-schema.json",
+  "title": "Ticketmaster Venue",
+  "description": "Schema for a Ticketmaster venue as returned by the Discovery API v2.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique venue identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Venue name"
+    },
+    "type": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "locale": {
+      "type": "string"
+    },
+    "postalCode": {
+      "type": "string"
+    },
+    "timezone": {
+      "type": "string"
+    },
+    "city": {
+      "type": "object",
+      "properties": {
+        "name": {"type": "string"}
+      }
+    },
+    "state": {
+      "type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "stateCode": {"type": "string"}
+      }
+    },
+    "country": {
+      "type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "countryCode": {"type": "string"}
+      }
+    },
+    "address": {
+      "type": "object",
+      "properties": {
+        "line1": {"type": "string"},
+        "line2": {"type": "string"}
+      }
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "longitude": {"type": "string"},
+        "latitude": {"type": "string"}
+      }
+    }
+  },
+  "required": ["id", "name"]
+}

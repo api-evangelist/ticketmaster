@@ -1,0 +1,79 @@
+{
+  "name": "Ticketmaster Event",
+  "description": "Structure documentation for Ticketmaster Discovery API event objects (HAL+JSON format)",
+  "format": "HAL+JSON",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "required": true,
+      "description": "Unique Ticketmaster event ID (alphanumeric)"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": true,
+      "description": "Display name of the event"
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "required": false,
+      "description": "Resource type, always 'event'"
+    },
+    {
+      "name": "url",
+      "type": "string (uri)",
+      "required": false,
+      "description": "Ticketmaster.com event URL for ticket purchase"
+    },
+    {
+      "name": "locale",
+      "type": "string",
+      "required": false,
+      "description": "BCP 47 locale code (e.g., en-us, fr-fr)"
+    },
+    {
+      "name": "images",
+      "type": "array<Image>",
+      "required": false,
+      "description": "Event images in 16:9, 3:2, and 4:3 aspect ratios at multiple resolutions"
+    },
+    {
+      "name": "dates",
+      "type": "object",
+      "required": false,
+      "description": "Event date/time info including start date, timezone, and status (onsale, cancelled, etc.)"
+    },
+    {
+      "name": "classifications",
+      "type": "array<Classification>",
+      "required": false,
+      "description": "Hierarchical classification: segment > genre > sub-genre"
+    },
+    {
+      "name": "priceRanges",
+      "type": "array<PriceRange>",
+      "required": false,
+      "description": "Ticket price ranges (min/max) in the event currency"
+    },
+    {
+      "name": "_embedded.venues",
+      "type": "array<Venue>",
+      "required": false,
+      "description": "Venue(s) where the event takes place (HAL embedded)"
+    },
+    {
+      "name": "_embedded.attractions",
+      "type": "array<Attraction>",
+      "required": false,
+      "description": "Artists, sports teams, or other performers (HAL embedded)"
+    },
+    {
+      "name": "_links.self",
+      "type": "object",
+      "required": false,
+      "description": "HAL self-link for this event resource"
+    }
+  ]
+}

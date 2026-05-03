@@ -1,0 +1,158 @@
+title: Ticketmaster Vocabulary
+description: >-
+  Domain vocabulary for the Ticketmaster platform APIs covering events,
+  venues, attractions, ticketing, and commerce concepts.
+provider: Ticketmaster
+created: '2026-05-03'
+modified: '2026-05-03'
+tags:
+  - Commerce
+  - Entertainment
+  - Events
+  - Sports
+  - Tickets
+
+terms:
+  - term: Event
+    label: Live Event
+    definition: >-
+      A scheduled live entertainment performance, game, or show available on
+      the Ticketmaster platform. Events belong to a venue and are associated
+      with one or more attractions and classifications.
+    tags:
+      - Core Entity
+
+  - term: Attraction
+    label: Attraction
+    definition: >-
+      A performer, sports team, theater company, or other entity that appears
+      at live events. Can be associated with multiple events and has its own
+      classification hierarchy.
+    tags:
+      - Core Entity
+
+  - term: Venue
+    label: Venue
+    definition: >-
+      A physical location (stadium, theater, arena, club) where live events
+      take place. Contains address, geographic coordinates, and upcoming event
+      counts.
+    tags:
+      - Core Entity
+
+  - term: Classification
+    label: Classification
+    definition: >-
+      A hierarchical taxonomy used to categorize events on Ticketmaster.
+      The hierarchy is: Segment > Genre > Sub-Genre. Examples: Music > Pop >
+      Pop, Sports > Basketball > NBA.
+    tags:
+      - Taxonomy
+
+  - term: Segment
+    label: Segment
+    definition: >-
+      The top-level classification category (e.g., Music, Sports, Arts &
+      Theatre, Family, Film). Segments group broad entertainment categories.
+    tags:
+      - Taxonomy
+
+  - term: Genre
+    label: Genre
+    definition: >-
+      The second-level classification under a Segment (e.g., Rock, Jazz,
+      Basketball, Ballet). Provides more specific categorization of events.
+    tags:
+      - Taxonomy
+
+  - term: Sub-Genre
+    label: Sub-Genre
+    definition: >-
+      The most granular classification level under a Genre (e.g., Classic
+      Rock, Contemporary Jazz). Used for precise event filtering.
+    tags:
+      - Taxonomy
+
+  - term: DMA
+    label: Designated Market Area
+    definition: >-
+      A geographic market area designation used by Ticketmaster to filter
+      events by metropolitan market region. Referenced in the Discovery API
+      as the dmaId parameter.
+    tags:
+      - Location
+
+  - term: Price Range
+    label: Ticket Price Range
+    definition: >-
+      The minimum and maximum face value ticket prices for an event, expressed
+      in the event's currency. Does not include service fees or facility charges.
+    tags:
+      - Commerce
+
+  - term: Offer
+    label: Ticket Offer
+    definition: >-
+      A purchasable ticket option for an event including price zone, ticket
+      type, total price (including fees), and purchase quantity limits.
+    tags:
+      - Commerce
+
+  - term: Status Code
+    label: Event Status Code
+    definition: >-
+      The current sales status of an event: onsale (tickets available),
+      offsale (sales ended), cancelled, postponed, or rescheduled.
+    tags:
+      - Event Status
+
+  - term: TMR
+    label: Ticketmaster Resale
+    definition: >-
+      Ticketmaster's resale marketplace (formerly known as TicketExchange).
+      Available as a content source in the Discovery API via source=tmr.
+    tags:
+      - Commerce
+
+  - term: HAL
+    label: HAL+JSON
+    definition: >-
+      Hypertext Application Language (HAL) is the response format used by
+      the Ticketmaster Discovery API v2. Embedded resources appear under
+      _embedded and navigation links appear under _links.
+    tags:
+      - API Design
+
+  - term: FrontGate
+    label: FrontGate Tickets
+    definition: >-
+      A ticket platform for festivals and special events, whose content is
+      available through the Ticketmaster Discovery API via source=frontgate.
+    tags:
+      - Commerce
+
+  - term: Universe
+    label: Universe
+    definition: >-
+      A self-service ticketing platform that distributes events through the
+      Ticketmaster Discovery API network via source=universe.
+    tags:
+      - Commerce
+
+  - term: API Key
+    label: API Key
+    definition: >-
+      The authentication credential required for all Ticketmaster API calls,
+      passed as the apikey query parameter or x-api-key header. Default
+      quota is 5,000 calls per day at 5 requests per second.
+    tags:
+      - Authentication
+
+  - term: Deep Paging Restriction
+    label: Deep Paging Restriction
+    definition: >-
+      A limitation in the Ticketmaster Discovery API where the product of
+      size × page must be less than 1,000, preventing retrieval of deeply
+      paginated result sets.
+    tags:
+      - Pagination

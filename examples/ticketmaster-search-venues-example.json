@@ -1,0 +1,44 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://app.ticketmaster.com/discovery/v2/venues.json?apikey=YOUR_API_KEY&keyword=Madison+Square+Garden&countryCode=US",
+    "headers": {
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "_embedded": {
+        "venues": [
+          {
+            "id": "KovZpZA7AEJA",
+            "name": "Madison Square Garden",
+            "type": "venue",
+            "url": "https://www.ticketmaster.com/venue/KovZpZA7AEJA",
+            "locale": "en-us",
+            "postalCode": "10001",
+            "timezone": "America/New_York",
+            "city": {"name": "New York"},
+            "state": {"name": "New York", "stateCode": "NY"},
+            "country": {"name": "United States Of America", "countryCode": "US"},
+            "address": {"line1": "4 Pennsylvania Plaza"},
+            "location": {"longitude": "-73.9930", "latitude": "40.7505"},
+            "upcomingEvents": {
+              "ticketmaster": 45
+            }
+          }
+        ]
+      },
+      "_links": {
+        "self": {"href": "/discovery/v2/venues.json?keyword=Madison+Square+Garden&countryCode=US&page=0&size=20"}
+      },
+      "page": {
+        "size": 20,
+        "totalElements": 1,
+        "totalPages": 1,
+        "number": 0
+      }
+    }
+  }
+}

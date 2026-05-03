@@ -1,0 +1,42 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://app.ticketmaster.com/commerce/v2/events/vvG1kZB9E_dBdQeC/offers.json?apikey=YOUR_API_KEY",
+    "headers": {
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "eventId": "vvG1kZB9E_dBdQeC",
+      "ticketTypes": [
+        {"id": "000000000001", "name": "Standard GA", "description": "General Admission", "typeId": "100"},
+        {"id": "000000000002", "name": "VIP Package", "description": "VIP Experience Package", "typeId": "200"}
+      ],
+      "priceRanges": [
+        {"type": "standard", "currency": "USD", "min": 49.50, "max": 299.00}
+      ],
+      "offers": [
+        {
+          "id": "offer-001",
+          "name": "Standard Ticket",
+          "description": "Standard admission ticket",
+          "currency": "USD",
+          "prices": [
+            {
+              "type": "face_value",
+              "currency": "USD",
+              "total": 99.00,
+              "fees": [
+                {"type": "service", "amount": 14.85},
+                {"type": "facility", "amount": 5.00}
+              ]
+            }
+          ],
+          "limit": {"min": 1, "max": 8}
+        }
+      ]
+    }
+  }
+}

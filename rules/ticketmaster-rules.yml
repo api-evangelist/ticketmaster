@@ -1,0 +1,94 @@
+extends:
+  - spectral:oas
+
+rules:
+  ticketmaster-paths-json-suffix:
+    description: Ticketmaster Discovery API paths must end with .json
+    severity: warn
+    given: "$.paths[*]~"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^.*\\.json$"
+
+  ticketmaster-apikey-param-required:
+    description: All operations must accept an apikey query parameter
+    severity: error
+    given: "$.paths[*][get,post,put,delete]"
+    then:
+      field: parameters
+      function: defined
+
+  ticketmaster-tags-title-case:
+    description: All tags must use Title Case
+    severity: warn
+    given: "$.tags[*].name"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z][a-zA-Z0-9 &-]+$"
+
+  ticketmaster-operation-ids-camel-case:
+    description: Operation IDs must use camelCase
+    severity: warn
+    given: "$.paths[*][*].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]+$"
+
+  ticketmaster-responses-200-on-get:
+    description: GET operations must have a 200 response
+    severity: error
+    given: "$.paths[*].get"
+    then:
+      field: responses.200
+      function: defined
+
+  ticketmaster-responses-401-on-get:
+    description: GET operations should document 401 unauthorized response
+    severity: info
+    given: "$.paths[*].get"
+    then:
+      field: responses.401
+      function: defined
+
+  ticketmaster-responses-404-on-resource:
+    description: Single resource GET endpoints should document 404 response
+    severity: info
+    given: "$.paths[?(/\\{.*\\}/)].get"
+    then:
+      field: responses.404
+      function: defined
+
+  ticketmaster-servers-https-only:
+    description: All server URLs must use HTTPS
+    severity: error
+    given: "$.servers[*].url"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://"
+
+  ticketmaster-pagination-in-list-ops:
+    description: List operations should support size and page parameters
+    severity: info
+    given: "$.paths[*~$(\\.json)].get.parameters"
+    then:
+      function: defined
+
+  ticketmaster-embedded-response-structure:
+    description: Collection responses should use HAL _embedded structure
+    severity: info
+    given: "$.components.schemas[?(@.properties._embedded)]"
+    then:
+      field: properties._embedded
+      function: defined
+
+  ticketmaster-info-version-semver:
+    description: API version should be documented
+    severity: warn
+    given: "$.info"
+    then:
+      field: version
+      function: defined

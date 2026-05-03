@@ -1,42 +1,75 @@
-# Ticketmaster (ticketmaster)
-Ticketmaster is a ticketing service that provides access to live entertainment events around the world. They work with event organizers and venues to sell tickets to concerts, sports games, theater performances, and other events. Ticketmaster offers a convenient platform for customers to browse and purchase tickets online, as well as providing customer support and assistance with any ticketing issues. They also offer mobile ticketing options for easy access to events on the go. Overall, Ticketmaster plays a crucial role in connecting fans with their favorite live entertainment experiences.
+# Ticketmaster
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/ticketmaster/refs/heads/main/apis.yml)
+Ticketmaster is the world's largest live entertainment ticketing company, providing access to tickets for concerts, sports, theater, and other live events globally. Their developer platform offers APIs for event discovery, ticket commerce, venue data, and partner integrations, giving developers access to over 230,000 events across dozens of countries.
 
-## Scope
-
-- **Type:** Index 
-- **Position:** Consumer 
-- **Access:** 3rd-Party 
-
-## Tags:
-
- - Tickets, Conerts, Events, Venues, Performances
-
-## Timestamps
-
-- **Created:** 2025-01-08 
-- **Modified:** 2025-03-02 
+**Website:** [https://www.ticketmaster.com](https://www.ticketmaster.com)  
+**Developer Portal:** [https://developer.ticketmaster.com](https://developer.ticketmaster.com)
 
 ## APIs
 
-### Ticketmaster API
-The Ticketmaster API is a platform that allows developers to access and integrate Ticketmaster's database of events, venues, and ticketing services into their own applications. By utilizing the API, developers can retrieve event listings, venue information, ticket availability, pricing, and seating charts. This integration enables developers to create customized event discovery and ticketing solutions, as well as improve the overall user experience for buying tickets to live events. The Ticketmaster API provides real-time updates on event information and ticket availability, making it a valuable tool for companies in the entertainment and ticketing industries.
+| API | Description | Docs |
+|-----|-------------|------|
+| Ticketmaster Discovery API | Search events, attractions, venues, and classifications | [Docs](https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/) |
+| Ticketmaster Commerce API | Ticket offers, pricing, and availability | [Docs](https://developer.ticketmaster.com/products-and-docs/apis/getting-started/) |
+| Ticketmaster Partner API | Reserved for authorized distribution partners | [Docs](https://developer.ticketmaster.com/products-and-docs/apis/partner/) |
 
-**Human URL:** [https://developer.ticketmaster.com](https://developer.ticketmaster.com)
+## OpenAPI Specifications
 
+| Spec | Path |
+|------|------|
+| Ticketmaster Discovery API | [openapi/ticketmaster-discovery-openapi.yml](openapi/ticketmaster-discovery-openapi.yml) |
+| Ticketmaster Commerce API | [openapi/ticketmaster-commerce-openapi.yml](openapi/ticketmaster-commerce-openapi.yml) |
 
-#### Tags:
+## JSON Schemas
 
- - Tickets, Conerts, Events, Venues, Performances
+| Schema | Path |
+|--------|------|
+| Ticketmaster Event | [json-schema/ticketmaster-event-schema.json](json-schema/ticketmaster-event-schema.json) |
+| Ticketmaster Venue | [json-schema/ticketmaster-venue-schema.json](json-schema/ticketmaster-venue-schema.json) |
 
-#### Properties
+## JSON Structure
 
-- [Documentation](https://developer.ticketmaster.com)
+| Structure | Path |
+|-----------|------|
+| Ticketmaster Event Structure | [json-structure/ticketmaster-event-structure.json](json-structure/ticketmaster-event-structure.json) |
 
-## Maintainers
+## JSON-LD
 
-**FN:** Kin Lane
+| Context | Path |
+|---------|------|
+| Ticketmaster Context | [json-ld/ticketmaster-context.jsonld](json-ld/ticketmaster-context.jsonld) |
 
-**Email:** info@apievangelist.com
+## Examples
 
+| Example | Path |
+|---------|------|
+| Search Events | [examples/ticketmaster-search-events-example.json](examples/ticketmaster-search-events-example.json) |
+| Search Venues | [examples/ticketmaster-search-venues-example.json](examples/ticketmaster-search-venues-example.json) |
+| Get Event Offers | [examples/ticketmaster-get-event-offers-example.json](examples/ticketmaster-get-event-offers-example.json) |
+
+## Spectral Rules
+
+| Ruleset | Path |
+|---------|------|
+| Ticketmaster API Rules | [rules/ticketmaster-rules.yml](rules/ticketmaster-rules.yml) |
+
+## Naftiko Capabilities
+
+### Shared API Definitions
+
+| API | Path |
+|-----|------|
+| Ticketmaster Discovery | [capabilities/shared/ticketmaster-discovery.yaml](capabilities/shared/ticketmaster-discovery.yaml) |
+| Ticketmaster Commerce | [capabilities/shared/ticketmaster-commerce.yaml](capabilities/shared/ticketmaster-commerce.yaml) |
+
+### Workflow Capabilities
+
+| Workflow | APIs | Description |
+|----------|------|-------------|
+| [Event Discovery and Ticketing](capabilities/event-discovery-and-ticketing.yaml) | Discovery + Commerce | Search events, venues, attractions, and check ticket availability |
+
+## Vocabulary
+
+| Vocabulary | Path |
+|------------|------|
+| Ticketmaster Vocabulary | [vocabulary/ticketmaster-vocabulary.yml](vocabulary/ticketmaster-vocabulary.yml) |

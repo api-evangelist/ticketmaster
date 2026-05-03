@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/ticketmaster/main/json-schema/ticketmaster-event-schema.json",
+  "title": "Ticketmaster Event",
+  "description": "Schema for a Ticketmaster live event as returned by the Discovery API v2.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique Ticketmaster event identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Event name"
+    },
+    "type": {
+      "type": "string",
+      "description": "Resource type (always 'event')"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Ticketmaster purchase URL for the event"
+    },
+    "locale": {
+      "type": "string",
+      "description": "Locale for the event content (e.g., en-us)"
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Image"
+      },
+      "description": "Event images in various aspect ratios and resolutions"
+    },
+    "dates": {
+      "$ref": "#/$defs/EventDates"
+    },
+    "classifications": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Classification"
+      }
+    },
+    "priceRanges": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/PriceRange"
+      }
+    }
+  },
+  "required": ["id", "name"],
+  "$defs": {
+    "Image": {
+      "type": "object",
+      "properties": {
+        "ratio": {"type": "string", "enum": ["16_9", "3_2", "4_3"]},
+        "url": {"type": "string", "format": "uri"},
+        "width": {"type": "integer"},
+        "height": {"type": "integer"},
+        "fallback": {"type": "boolean"}
+      }
+    },
+    "EventDates": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "object",
+          "properties": {
+            "localDate": {"type": "string", "format": "date"},
+            "localTime": {"type": "string"},
+            "dateTime": {"type": "string", "format": "date-time"},
+            "dateTBD": {"type": "boolean"},
+            "timeTBD": {"type": "boolean"}
+          }
+        },
+        "status": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "enum": ["onsale", "offsale", "cancelled", "postponed", "rescheduled"]
+            }
+          }
+        },
+        "timezone": {"type": "string"}
+      }
+    },
+    "Classification": {
+      "type": "object",
+      "properties": {
+        "primary": {"type": "boolean"},
+        "segment": {"$ref": "#/$defs/ClassificationEntity"},
+        "genre": {"$ref": "#/$defs/ClassificationEntity"},
+        "subGenre": {"$ref": "#/$defs/ClassificationEntity"}
+      }
+    },
+    "ClassificationEntity": {
+      "type": "object",
+      "properties": {
+        "id": {"type": "string"},
+        "name": {"type": "string"}
+      }
+    },
+    "PriceRange": {
+      "type": "object",
+      "properties": {
+        "type": {"type": "string"},
+        "currency": {"type": "string"},
+        "min": {"type": "number"},
+        "max": {"type": "number"}
+      }
+    }
+  }
+}

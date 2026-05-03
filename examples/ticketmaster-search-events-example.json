@@ -1,0 +1,99 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://app.ticketmaster.com/discovery/v2/events.json?apikey=YOUR_API_KEY&keyword=Taylor+Swift&countryCode=US&startDateTime=2026-05-01T00:00:00Z&endDateTime=2026-12-31T23:59:59Z&size=3",
+    "headers": {
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "_embedded": {
+        "events": [
+          {
+            "id": "vvG1kZB9E_dBdQeC",
+            "name": "Taylor Swift | The Eras Tour",
+            "type": "event",
+            "url": "https://www.ticketmaster.com/event/vvG1kZB9E_dBdQeC",
+            "locale": "en-us",
+            "images": [
+              {
+                "ratio": "16_9",
+                "url": "https://s1.ticketm.net/dam/a/db8/taylor-swift_16_9.jpg",
+                "width": 2048,
+                "height": 1152,
+                "fallback": false
+              }
+            ],
+            "dates": {
+              "start": {
+                "localDate": "2026-08-15",
+                "localTime": "19:00:00",
+                "dateTime": "2026-08-16T00:00:00Z",
+                "dateTBD": false,
+                "timeTBD": false,
+                "noSpecificTime": false
+              },
+              "status": {
+                "code": "onsale"
+              },
+              "timezone": "America/Los_Angeles"
+            },
+            "classifications": [
+              {
+                "primary": true,
+                "segment": {"id": "KZFzniwnSyZfZ7v7nJ", "name": "Music"},
+                "genre": {"id": "KnvZfZ7vAeA", "name": "Pop"},
+                "subGenre": {"id": "KZazBEonSMnZfZ7vk1I", "name": "Pop"}
+              }
+            ],
+            "priceRanges": [
+              {
+                "type": "standard",
+                "currency": "USD",
+                "min": 49.50,
+                "max": 299.00
+              }
+            ],
+            "_embedded": {
+              "venues": [
+                {
+                  "id": "KovZpZA7AEVA",
+                  "name": "SoFi Stadium",
+                  "city": {"name": "Inglewood"},
+                  "state": {"name": "California", "stateCode": "CA"},
+                  "country": {"name": "United States Of America", "countryCode": "US"},
+                  "address": {"line1": "1001 S Prairie Ave"},
+                  "location": {"longitude": "-118.3392", "latitude": "33.9535"}
+                }
+              ],
+              "attractions": [
+                {
+                  "id": "K8vZ91713eV",
+                  "name": "Taylor Swift",
+                  "classifications": [
+                    {
+                      "segment": {"id": "KZFzniwnSyZfZ7v7nJ", "name": "Music"},
+                      "genre": {"id": "KnvZfZ7vAeA", "name": "Pop"}
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "_links": {
+        "self": {"href": "/discovery/v2/events.json?keyword=Taylor+Swift&countryCode=US&page=0&size=3&sort=date,asc"},
+        "next": {"href": "/discovery/v2/events.json?keyword=Taylor+Swift&countryCode=US&page=1&size=3&sort=date,asc"}
+      },
+      "page": {
+        "size": 3,
+        "totalElements": 24,
+        "totalPages": 8,
+        "number": 0
+      }
+    }
+  }
+}

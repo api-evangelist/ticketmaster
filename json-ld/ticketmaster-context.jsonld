@@ -1,0 +1,74 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "tm": "https://developer.ticketmaster.com/ontology/",
+
+    "Event": "Event",
+    "id": "@id",
+    "name": "name",
+    "url": "url",
+    "locale": "inLanguage",
+
+    "dates": {
+      "@id": "tm:dates",
+      "@type": "@id"
+    },
+    "startDate": "startDate",
+    "endDate": "endDate",
+    "eventStatus": "eventStatus",
+
+    "Venue": "Place",
+    "city": "addressLocality",
+    "state": "addressRegion",
+    "country": "addressCountry",
+    "postalCode": "postalCode",
+    "address": "address",
+    "location": "geo",
+    "longitude": "longitude",
+    "latitude": "latitude",
+
+    "Attraction": "Person",
+
+    "Classification": {
+      "@id": "tm:Classification",
+      "@type": "@id"
+    },
+    "segment": {
+      "@id": "tm:segment",
+      "@type": "@id"
+    },
+    "genre": {
+      "@id": "tm:genre",
+      "@type": "@id"
+    },
+    "subGenre": {
+      "@id": "tm:subGenre",
+      "@type": "@id"
+    },
+
+    "PriceRange": "PriceSpecification",
+    "priceRanges": "offers",
+    "min": "minPrice",
+    "max": "maxPrice",
+    "currency": "priceCurrency",
+
+    "Image": "ImageObject",
+    "images": "image",
+    "width": "width",
+    "height": "height",
+    "ratio": "tm:ratio",
+
+    "promoter": {
+      "@id": "tm:promoter",
+      "@type": "@id"
+    },
+
+    "page": {
+      "@id": "tm:page",
+      "@type": "@id"
+    },
+    "totalElements": "tm:totalElements",
+    "totalPages": "tm:totalPages",
+    "size": "tm:pageSize"
+  }
+}
