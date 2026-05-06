@@ -4,98 +4,57 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Ticketmaster
 providerId: ticketmaster
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
-  - Commerce
-  - Concerts
-  - Entertainment
   - Events
-  - Sports
   - Tickets
-  - Venues
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Ticketmaster API surface. Captures per-tier
-  quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to
-  be replaced with published provider limits.
+description: Ticketmaster's developer documentation publishes a default Discovery API quota of 5,000
+  requests per day at 5 requests per second per API key. The FAQ describes the same Discovery quota as
+  "2 requests per second and 5000 requests per day"; the higher 5/sec figure appears in the Getting Started
+  guide and is the more permissive published number. Higher limits are granted case by case after compliance
+  and branding review. Usage is exposed via Rate-Limit response headers, with HTTP 429 returned on overage.
+sources:
+  - https://developer.ticketmaster.com/products-and-docs/apis/getting-started/
+  - https://developer.ticketmaster.com/support/faq/
 headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+  limit: Rate-Limit
+  remaining: Rate-Limit-Available
+  over: Rate-Limit-Over
+  reset: Rate-Limit-Reset
 responseCodes:
   throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
 limits:
-  - tier: free
-    name: Free Tier Default
+  - name: Discovery API daily quota (default)
     scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Ticketmaster Discovery API
-      - Ticketmaster Commerce API
-      - Ticketmaster Partner API
-  - tier: free
-    name: Free Tier Monthly Quota
+    metric: requests_per_day
+    limit: 5000
+    timeFrame: day
+    notes: Documented in Getting Started and FAQ as the default per-key daily quota.
+  - name: Discovery API throughput (default)
     scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - Ticketmaster Discovery API
-      - Ticketmaster Commerce API
-      - Ticketmaster Partner API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Ticketmaster Discovery API
-      - Ticketmaster Commerce API
-      - Ticketmaster Partner API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Ticketmaster Discovery API
-      - Ticketmaster Commerce API
-      - Ticketmaster Partner API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Ticketmaster Discovery API
-      - Ticketmaster Commerce API
-      - Ticketmaster Partner API
+    metric: requests_per_second
+    limit: 5
+    timeFrame: second
+    notes: Getting Started guide documents 5 requests/second; the FAQ cites 2 requests/second for the
+      Discovery API. Treat 5 rps as the upper documented default and back off on 429.
+  - name: Discovery Feed (Partner)
+    scope: partner-account
+    metric: requests_per_day
+    limit: see partner agreement
+    notes: Partner-only Discovery Feed has "no call restrictions" with hourly data refresh; effectively
+      unmetered for approved partners.
 policies:
+  - name: Quota Increase Process
+    description: Higher rate limits are granted case by case after Ticketmaster verifies compliance with
+      Terms of Service, branding guidelines, and accurate representation of Ticketmaster data.
   - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+    description: Honor the Rate-Limit-Reset timestamp on 429 responses; the Rate-Limit-Available header
+      lets clients pace requests proactively.
+  - name: Partner Tier Alternative
+    description: Applications that consistently exceed the public Discovery quota should apply for the
+      Discovery Feed instead of repeatedly polling the Discovery API.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
