@@ -93,7 +93,7 @@ common:
     url: https://developer.ticketmaster.com
   - type: Documentation
     url: https://developer.ticketmaster.com/products-and-docs/
-  - type: Getting Started
+  - type: GettingStarted
     url: https://developer.ticketmaster.com/products-and-docs/apis/getting-started/
   - type: API Explorer
     url: https://developer.ticketmaster.com/api-explorer/v2/
@@ -105,11 +105,11 @@ common:
     url: https://twitter.com/ticketmaster
   - type: LinkedIn
     url: https://www.linkedin.com/company/ticketmaster
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://developer.ticketmaster.com/support/terms-of-use/
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://www.ticketmaster.com/h/privacy.html
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/ticketmaster-context.jsonld
   - type: JSONSchema
     url: json-schema/ticketmaster-event-schema.json
