@@ -1,0 +1,88 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Ticketmaster Commerce API — Offerings
+  description: 'Ticketmaster Commerce API — Offerings. 1 operations. Lead operation: Get Event Offers. Self-contained Naftiko
+    capability covering one Ticketmaster business surface.'
+  tags:
+  - Ticketmaster
+  - Offerings
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TICKETMASTER_API_KEY: TICKETMASTER_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: commerce-offerings
+    baseUri: https://app.ticketmaster.com/commerce/v2
+    description: Ticketmaster Commerce API — Offerings business capability. Self-contained, no shared references.
+    resources:
+    - name: events-eventId-offers.json
+      path: /events/{eventId}/offers.json
+      operations:
+      - name: geteventoffers
+        method: GET
+        description: Get Event Offers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: apikey
+          in: query
+          type: string
+          required: true
+        - name: eventId
+          in: path
+          type: string
+          description: Ticketmaster event ID
+          required: true
+    authentication:
+      type: apikey
+      key: apikey
+      value: '{{env.TICKETMASTER_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: commerce-offerings-rest
+    port: 8080
+    description: REST adapter for Ticketmaster Commerce API — Offerings. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/events/{eventid}/offers-json
+      name: events-eventid-offers-json
+      description: REST surface for events-eventId-offers.json.
+      operations:
+      - method: GET
+        name: geteventoffers
+        description: Get Event Offers
+        call: commerce-offerings.geteventoffers
+        with:
+          apikey: rest.apikey
+          eventId: rest.eventId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: commerce-offerings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Ticketmaster Commerce API — Offerings. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-event-offers
+      description: Get Event Offers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: commerce-offerings.geteventoffers
+      with:
+        apikey: tools.apikey
+        eventId: tools.eventId
+      outputParameters:
+      - type: object
+        mapping: $.

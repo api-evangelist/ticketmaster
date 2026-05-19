@@ -1,0 +1,88 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Ticketmaster Commerce API — Availability
+  description: 'Ticketmaster Commerce API — Availability. 1 operations. Lead operation: Get Event Availability. Self-contained
+    Naftiko capability covering one Ticketmaster business surface.'
+  tags:
+  - Ticketmaster
+  - Availability
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TICKETMASTER_API_KEY: TICKETMASTER_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: commerce-availability
+    baseUri: https://app.ticketmaster.com/commerce/v2
+    description: Ticketmaster Commerce API — Availability business capability. Self-contained, no shared references.
+    resources:
+    - name: events-eventId-availability.json
+      path: /events/{eventId}/availability.json
+      operations:
+      - name: geteventavailability
+        method: GET
+        description: Get Event Availability
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: apikey
+          in: query
+          type: string
+          required: true
+        - name: eventId
+          in: path
+          type: string
+          description: Ticketmaster event ID
+          required: true
+    authentication:
+      type: apikey
+      key: apikey
+      value: '{{env.TICKETMASTER_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: commerce-availability-rest
+    port: 8080
+    description: REST adapter for Ticketmaster Commerce API — Availability. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/events/{eventid}/availability-json
+      name: events-eventid-availability-json
+      description: REST surface for events-eventId-availability.json.
+      operations:
+      - method: GET
+        name: geteventavailability
+        description: Get Event Availability
+        call: commerce-availability.geteventavailability
+        with:
+          apikey: rest.apikey
+          eventId: rest.eventId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: commerce-availability-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Ticketmaster Commerce API — Availability. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: get-event-availability
+      description: Get Event Availability
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: commerce-availability.geteventavailability
+      with:
+        apikey: tools.apikey
+        eventId: tools.eventId
+      outputParameters:
+      - type: object
+        mapping: $.
