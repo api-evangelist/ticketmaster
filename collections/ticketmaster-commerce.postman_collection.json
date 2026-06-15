@@ -1,0 +1,416 @@
+{
+  "item": [
+    {
+      "id": "b92a206b-bc44-4534-93dc-db124d9d3f90",
+      "name": "Availability",
+      "description": {
+        "content": "Check ticket availability for events",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f6587908-6b6b-4d67-9191-d69a05606ab9",
+          "name": "Get Event Availability",
+          "request": {
+            "name": "Get Event Availability",
+            "description": {
+              "content": "Returns availability status and ticket count for a specific event. Indicates if tickets are available, sold out, or not yet on sale.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "events",
+                ":eventId",
+                "availability.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "apikey",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventId",
+                  "description": "(Required) Ticketmaster event ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "749a9a9c-f323-4757-8d83-a92564e97494",
+              "name": "Event availability status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events",
+                    ":eventId",
+                    "availability.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventId",
+                      "description": "(Required) Ticketmaster event ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"eventId\": \"string\",\n  \"status\": \"offsale\",\n  \"remainingTickets\": 5749,\n  \"hasTicketsAvailable\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b3302a37-cc45-4879-91fe-ee17f10dda4a",
+              "name": "Event not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events",
+                    ":eventId",
+                    "availability.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventId",
+                      "description": "(Required) Ticketmaster event ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ee8e291a-8776-4afd-99e9-94acbea08215",
+      "name": "Offerings",
+      "description": {
+        "content": "Retrieve ticket offerings and pricing",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c66b2e05-5010-49be-9701-9f2a3ceba4ae",
+          "name": "Get Event Offers",
+          "request": {
+            "name": "Get Event Offers",
+            "description": {
+              "content": "Returns ticket offering details for a specific event, including price ranges, ticket limits, and purchase URLs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "events",
+                ":eventId",
+                "offers.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "apikey",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventId",
+                  "description": "(Required) Ticketmaster event ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3ae4436a-bc17-495e-ad9b-46c4a5c725f8",
+              "name": "Event ticket offers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events",
+                    ":eventId",
+                    "offers.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventId",
+                      "description": "(Required) Ticketmaster event ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"eventId\": \"string\",\n  \"ticketTypes\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"typeId\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"typeId\": \"string\"\n    }\n  ],\n  \"priceRanges\": [\n    {\n      \"type\": \"string\",\n      \"currency\": \"string\",\n      \"min\": 4336.470086627877,\n      \"max\": 6110.870150144066\n    },\n    {\n      \"type\": \"string\",\n      \"currency\": \"string\",\n      \"min\": 885.4799969682359,\n      \"max\": 26.46430936485311\n    }\n  ],\n  \"offers\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"priceZone\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"currency\": \"string\",\n      \"prices\": [\n        {\n          \"type\": \"string\",\n          \"currency\": \"string\",\n          \"total\": 7969.015207168183,\n          \"fees\": [\n            {\n              \"type\": \"string\",\n              \"amount\": 8146.709934924424\n            },\n            {\n              \"type\": \"string\",\n              \"amount\": 496.3117857385613\n            }\n          ]\n        },\n        {\n          \"type\": \"string\",\n          \"currency\": \"string\",\n          \"total\": 5343.717454963017,\n          \"fees\": [\n            {\n              \"type\": \"string\",\n              \"amount\": 2688.7591726167616\n            },\n            {\n              \"type\": \"string\",\n              \"amount\": 2087.649273173906\n            }\n          ]\n        }\n      ],\n      \"limit\": {\n        \"min\": 6953,\n        \"max\": 6771\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"priceZone\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"currency\": \"string\",\n      \"prices\": [\n        {\n          \"type\": \"string\",\n          \"currency\": \"string\",\n          \"total\": 8802.023405146618,\n          \"fees\": [\n            {\n              \"type\": \"string\",\n              \"amount\": 1810.8236601594906\n            },\n            {\n              \"type\": \"string\",\n              \"amount\": 5380.647685263901\n            }\n          ]\n        },\n        {\n          \"type\": \"string\",\n          \"currency\": \"string\",\n          \"total\": 9154.06429355459,\n          \"fees\": [\n            {\n              \"type\": \"string\",\n              \"amount\": 547.9901684593381\n            },\n            {\n              \"type\": \"string\",\n              \"amount\": 9191.576553051518\n            }\n          ]\n        }\n      ],\n      \"limit\": {\n        \"min\": 5753,\n        \"max\": 1457\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "01972cdb-99b9-4a66-84e8-43e48d073f37",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events",
+                    ":eventId",
+                    "offers.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventId",
+                      "description": "(Required) Ticketmaster event ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "431479bf-c99e-4adf-b2c7-dacbe0945f3d",
+              "name": "Event not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events",
+                    ":eventId",
+                    "offers.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventId",
+                      "description": "(Required) Ticketmaster event ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.ticketmaster.com/commerce/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apikey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bafe7676-15c4-4bc4-aad0-62514f364587",
+    "name": "Ticketmaster Commerce API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Ticketmaster Commerce API enables developers to retrieve ticket availability, pricing, and purchase links for events. Provides access to event inventory status, top picks, and checkout URLs to redirect users to the Ticketmaster purchase flow.\n\nContact Support:\n Name: Ticketmaster Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

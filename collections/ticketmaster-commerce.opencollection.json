@@ -1,0 +1,82 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ticketmaster Commerce API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Offerings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Event Offers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.ticketmaster.com/commerce/v2/events/:eventId/offers.json",
+            "params": [
+              {
+                "name": "apikey",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path",
+                "description": "Ticketmaster event ID"
+              }
+            ]
+          },
+          "docs": "Returns ticket offering details for a specific event, including price ranges, ticket limits, and purchase URLs."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Availability",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Event Availability",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.ticketmaster.com/commerce/v2/events/:eventId/availability.json",
+            "params": [
+              {
+                "name": "apikey",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path",
+                "description": "Ticketmaster event ID"
+              }
+            ]
+          },
+          "docs": "Returns availability status and ticket count for a specific event. Indicates if tickets are available, sold out, or not yet on sale."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
