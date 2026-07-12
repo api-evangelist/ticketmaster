@@ -80,6 +80,10 @@ apis:
       - type: FAQ
         url: https://developer.ticketmaster.com/support/partner-api-faq/
 common:
+  - type: DomainSecurity
+    url: security/ticketmaster-domain-security.yml
+  - type: Authentication
+    url: authentication/ticketmaster-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/ticketmaster
   - type: Portal
