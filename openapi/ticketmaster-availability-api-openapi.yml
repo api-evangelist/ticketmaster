@@ -1,0 +1,70 @@
+openapi: 3.0.3
+info:
+  title: Ticketmaster Commerce Availability API
+  description: The Ticketmaster Commerce API enables developers to retrieve ticket availability, pricing, and purchase links for events. Provides access to event inventory status, top picks, and checkout URLs to redirect users to the Ticketmaster purchase flow.
+  version: '2.0'
+  contact:
+    name: Ticketmaster Developer Support
+    url: https://developer.ticketmaster.com
+  termsOfService: https://developer.ticketmaster.com/support/terms-of-use/
+servers:
+- url: https://app.ticketmaster.com/commerce/v2
+  description: Ticketmaster Commerce API v2
+security:
+- ApiKeyQuery: []
+tags:
+- name: Availability
+  description: Check ticket availability for events
+paths:
+  /events/{eventId}/availability.json:
+    get:
+      operationId: getEventAvailability
+      summary: Get Event Availability
+      description: Returns availability status and ticket count for a specific event. Indicates if tickets are available, sold out, or not yet on sale.
+      tags:
+      - Availability
+      parameters:
+      - name: apikey
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: eventId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Ticketmaster event ID
+      responses:
+        '200':
+          description: Event availability status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventAvailability'
+        '404':
+          description: Event not found
+components:
+  schemas:
+    EventAvailability:
+      type: object
+      properties:
+        eventId:
+          type: string
+        status:
+          type: string
+          enum:
+          - available
+          - sold-out
+          - not-yet-on-sale
+          - offsale
+          - cancelled
+        remainingTickets:
+          type: integer
+        hasTicketsAvailable:
+          type: boolean
+  securitySchemes:
+    ApiKeyQuery:
+      type: apiKey
+      in: query
+      name: apikey
