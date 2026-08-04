@@ -1,0 +1,18 @@
+{
+  "provider": "ticketmaster",
+  "sources": [
+    "ticketmaster-availability-api-openapi.yml",
+    "ticketmaster-offerings-api-openapi.yml"
+  ],
+  "outputs": [
+    "ticketmaster-availability-api-openapi.yml",
+    "ticketmaster-offerings-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": [
+    "ticketmaster-discovery-openapi.yml: parse error ScannerError: mapping values are not allowed here"
+  ]
+}

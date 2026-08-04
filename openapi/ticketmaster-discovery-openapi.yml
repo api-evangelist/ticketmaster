@@ -149,7 +149,7 @@ paths:
           in: query
           schema:
             type: integer
-          description: Page number (note: size × page < 1000)
+          description: "Page number (note: size × page < 1000)"
         - name: sort
           in: query
           schema:
