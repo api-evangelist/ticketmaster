@@ -83,6 +83,56 @@ apis:
     url: https://developer.ticketmaster.com
   - type: Documentation
     url: https://developer.ticketmaster.com/products-and-docs/apis/getting-started/
+- aid: ticketmaster:ticketmaster-attractions-api
+  name: Ticketmaster Attractions API
+  description: Search artists, sports teams, and other attractions
+  humanURL: https://developer.ticketmaster.com/products-and-docs/apis/partner/
+  baseURL: https://app.ticketmaster.com/partners/v1
+  tags:
+  - Attractions
+  properties:
+  - type: OpenAPI
+    url: openapi/ticketmaster-attractions-api-openapi.yml
+- aid: ticketmaster:ticketmaster-classifications-api
+  name: Ticketmaster Classifications API
+  description: Browse event segments, genres, and sub-genres
+  humanURL: https://developer.ticketmaster.com/products-and-docs/apis/partner/
+  baseURL: https://app.ticketmaster.com/partners/v1
+  tags:
+  - Classifications
+  properties:
+  - type: OpenAPI
+    url: openapi/ticketmaster-classifications-api-openapi.yml
+- aid: ticketmaster:ticketmaster-events-api
+  name: Ticketmaster Events API
+  description: Search and retrieve live event information
+  humanURL: https://developer.ticketmaster.com/products-and-docs/apis/partner/
+  baseURL: https://app.ticketmaster.com/partners/v1
+  tags:
+  - Events
+  properties:
+  - type: OpenAPI
+    url: openapi/ticketmaster-events-api-openapi.yml
+- aid: ticketmaster:ticketmaster-suggestions-api
+  name: Ticketmaster Suggestions API
+  description: Search suggestions and autocomplete
+  humanURL: https://developer.ticketmaster.com/products-and-docs/apis/partner/
+  baseURL: https://app.ticketmaster.com/partners/v1
+  tags:
+  - Suggestions
+  properties:
+  - type: OpenAPI
+    url: openapi/ticketmaster-suggestions-api-openapi.yml
+- aid: ticketmaster:ticketmaster-venues-api
+  name: Ticketmaster Venues API
+  description: Search and retrieve venue information
+  humanURL: https://developer.ticketmaster.com/products-and-docs/apis/partner/
+  baseURL: https://app.ticketmaster.com/partners/v1
+  tags:
+  - Venues
+  properties:
+  - type: OpenAPI
+    url: openapi/ticketmaster-venues-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/ticketmaster-agentic-access.yml
