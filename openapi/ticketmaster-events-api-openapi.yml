@@ -1,0 +1,528 @@
+openapi: 3.2.0
+info:
+  title: Ticketmaster Discovery Events API
+  description: The Ticketmaster Discovery API allows developers to search for events, attractions, venues, and classifications across the Ticketmaster platform. Access over 230,000 events across the United States, Canada, Mexico, Australia, New Zealand, the UK, Ireland, and Europe. Content sources include Ticketmaster, Universe, FrontGate Tickets, and Ticketmaster Resale (TMR). Default quota is 5,000 API calls per day with a rate limit of 5 requests per second.
+  version: '2.0'
+  contact:
+    name: Ticketmaster Developer Support
+    url: https://developer.ticketmaster.com
+  termsOfService: https://developer.ticketmaster.com/support/terms-of-use/
+servers:
+- url: https://app.ticketmaster.com/discovery/v2
+  description: Ticketmaster Discovery API v2
+security:
+- ApiKeyQuery: []
+tags:
+- name: Events
+  description: Search and retrieve live event information
+paths:
+  /events.json:
+    get:
+      operationId: searchEvents
+      summary: Search Events
+      description: Search for live events across the Ticketmaster platform by keyword, location, date range, attraction, venue, classification, and more. Returns paginated results with event details, venue info, images, and pricing.
+      tags:
+      - Events
+      parameters:
+      - name: apikey
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Your Ticketmaster API Key
+      - name: keyword
+        in: query
+        schema:
+          type: string
+        description: Keyword search term
+      - name: attractionId
+        in: query
+        schema:
+          type: string
+        description: Filter by attraction ID
+      - name: venueId
+        in: query
+        schema:
+          type: string
+        description: Filter by venue ID
+      - name: classificationName
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+        description: Filter by classification name (e.g., Music, Sports)
+      - name: classificationId
+        in: query
+        schema:
+          type: string
+        description: Filter by classification ID
+      - name: countryCode
+        in: query
+        schema:
+          type: string
+        description: ISO country code filter (e.g., US, GB, AU)
+      - name: stateCode
+        in: query
+        schema:
+          type: string
+        description: US state code filter (e.g., CA, NY)
+      - name: city
+        in: query
+        schema:
+          type: string
+        description: City name filter
+      - name: postalCode
+        in: query
+        schema:
+          type: string
+        description: Postal/zip code for location-based search
+      - name: latlong
+        in: query
+        schema:
+          type: string
+        description: Latitude,longitude for geographic search (e.g., 34.0,-118.0)
+      - name: radius
+        in: query
+        schema:
+          type: integer
+        description: Radius (in miles/km) for geographic search
+      - name: unit
+        in: query
+        schema:
+          type: string
+          enum:
+          - miles
+          - km
+        description: Unit for radius filter
+      - name: startDateTime
+        in: query
+        schema:
+          type: string
+          format: date-time
+        description: Start date/time filter (ISO 8601)
+      - name: endDateTime
+        in: query
+        schema:
+          type: string
+          format: date-time
+        description: End date/time filter (ISO 8601)
+      - name: source
+        in: query
+        schema:
+          type: string
+          enum:
+          - ticketmaster
+          - universe
+          - frontgate
+          - tmr
+        description: Filter by ticket source
+      - name: includeTest
+        in: query
+        schema:
+          type: string
+          enum:
+          - true
+          - false
+          - only
+        description: Include test events
+      - name: size
+        in: query
+        schema:
+          type: integer
+          maximum: 200
+        description: Number of results per page (max 200)
+      - name: page
+        in: query
+        schema:
+          type: integer
+        description: 'Page number (note: size × page < 1000)'
+      - name: sort
+        in: query
+        schema:
+          type: string
+        description: Sort order (e.g., date,asc or relevance,desc)
+      - name: locale
+        in: query
+        schema:
+          type: string
+        description: Locale for response (e.g., en-us, fr-fr)
+      responses:
+        '200':
+          description: Event search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventSearchResponse'
+        '401':
+          description: Invalid API key
+        '429':
+          description: Rate limit exceeded
+  /events/{id}.json:
+    get:
+      operationId: getEvent
+      summary: Get Event
+      description: Retrieve details for a specific event by ID.
+      tags:
+      - Events
+      parameters:
+      - name: apikey
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Ticketmaster event ID
+      - name: locale
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Event details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+        '404':
+          description: Event not found
+  /events/{id}/images.json:
+    get:
+      operationId: getEventImages
+      summary: Get Event Images
+      description: Retrieve all images for a specific event in various aspect ratios and sizes.
+      tags:
+      - Events
+      parameters:
+      - name: apikey
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Ticketmaster event ID
+      - name: locale
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Event images
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventImages'
+components:
+  schemas:
+    Classification:
+      type: object
+      properties:
+        primary:
+          type: boolean
+        segment:
+          $ref: '#/components/schemas/ClassificationEntity'
+        genre:
+          $ref: '#/components/schemas/ClassificationEntity'
+        subGenre:
+          $ref: '#/components/schemas/ClassificationEntity'
+        type:
+          $ref: '#/components/schemas/ClassificationEntity'
+        subType:
+          $ref: '#/components/schemas/ClassificationEntity'
+        family:
+          type: boolean
+    Promoter:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+    Page:
+      type: object
+      properties:
+        size:
+          type: integer
+        totalElements:
+          type: integer
+        totalPages:
+          type: integer
+        number:
+          type: integer
+    Links:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+        next:
+          type: object
+          properties:
+            href:
+              type: string
+        prev:
+          type: object
+          properties:
+            href:
+              type: string
+    Venue:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        url:
+          type: string
+          format: uri
+        locale:
+          type: string
+        postalCode:
+          type: string
+        timezone:
+          type: string
+        city:
+          type: object
+          properties:
+            name:
+              type: string
+        state:
+          type: object
+          properties:
+            name:
+              type: string
+            stateCode:
+              type: string
+        country:
+          type: object
+          properties:
+            name:
+              type: string
+            countryCode:
+              type: string
+        address:
+          type: object
+          properties:
+            line1:
+              type: string
+            line2:
+              type: string
+        location:
+          type: object
+          properties:
+            longitude:
+              type: string
+            latitude:
+              type: string
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/Image'
+        upcomingEvents:
+          type: object
+    EventImages:
+      type: object
+      properties:
+        type:
+          type: string
+        id:
+          type: string
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/Image'
+    Image:
+      type: object
+      properties:
+        ratio:
+          type: string
+          enum:
+          - '16_9'
+          - '3_2'
+          - '4_3'
+        url:
+          type: string
+          format: uri
+        width:
+          type: integer
+        height:
+          type: integer
+        fallback:
+          type: boolean
+    Attraction:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        url:
+          type: string
+          format: uri
+        locale:
+          type: string
+        externalLinks:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: object
+              properties:
+                url:
+                  type: string
+                  format: uri
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/Image'
+        classifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/Classification'
+        upcomingEvents:
+          type: object
+    Event:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+          description: Event name
+        type:
+          type: string
+        url:
+          type: string
+          format: uri
+          description: Ticketmaster event URL
+        locale:
+          type: string
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/Image'
+        dates:
+          $ref: '#/components/schemas/EventDates'
+        classifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/Classification'
+        promoter:
+          $ref: '#/components/schemas/Promoter'
+        priceRanges:
+          type: array
+          items:
+            $ref: '#/components/schemas/PriceRange'
+        seatmap:
+          type: object
+          properties:
+            staticUrl:
+              type: string
+              format: uri
+        _embedded:
+          type: object
+          properties:
+            venues:
+              type: array
+              items:
+                $ref: '#/components/schemas/Venue'
+            attractions:
+              type: array
+              items:
+                $ref: '#/components/schemas/Attraction'
+    EventDates:
+      type: object
+      properties:
+        start:
+          type: object
+          properties:
+            localDate:
+              type: string
+              format: date
+            localTime:
+              type: string
+              format: time
+            dateTime:
+              type: string
+              format: date-time
+            dateTBD:
+              type: boolean
+            timeTBD:
+              type: boolean
+            noSpecificTime:
+              type: boolean
+        end:
+          type: object
+          properties:
+            localDate:
+              type: string
+              format: date
+            dateTime:
+              type: string
+              format: date-time
+        status:
+          type: object
+          properties:
+            code:
+              type: string
+              enum:
+              - onsale
+              - offsale
+              - cancelled
+              - postponed
+              - rescheduled
+        timezone:
+          type: string
+    PriceRange:
+      type: object
+      properties:
+        type:
+          type: string
+        currency:
+          type: string
+        min:
+          type: number
+        max:
+          type: number
+    EventSearchResponse:
+      type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            events:
+              type: array
+              items:
+                $ref: '#/components/schemas/Event'
+        _links:
+          $ref: '#/components/schemas/Links'
+        page:
+          $ref: '#/components/schemas/Page'
+    ClassificationEntity:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+  securitySchemes:
+    ApiKeyQuery:
+      type: apiKey
+      in: query
+      name: apikey

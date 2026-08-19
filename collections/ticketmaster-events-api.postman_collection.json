@@ -1,0 +1,854 @@
+{
+  "item": [
+    {
+      "id": "9f07e602-c6c2-485c-bc8d-85c4412f16e3",
+      "name": "Events",
+      "description": {
+        "content": "Search and retrieve live event information",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "547f76ed-5fba-4d88-98fe-591ce69fcdda",
+          "name": "Search Events",
+          "request": {
+            "name": "Search Events",
+            "description": {
+              "content": "Search for live events across the Ticketmaster platform by keyword, location, date range, attraction, venue, classification, and more. Returns paginated results with event details, venue info, images, and pricing.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "events.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "apikey",
+                  "value": "<string>",
+                  "description": "(Required) Your Ticketmaster API Key"
+                },
+                {
+                  "disabled": false,
+                  "key": "keyword",
+                  "value": "<string>",
+                  "description": "Keyword search term"
+                },
+                {
+                  "disabled": false,
+                  "key": "attractionId",
+                  "value": "<string>",
+                  "description": "Filter by attraction ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "venueId",
+                  "value": "<string>",
+                  "description": "Filter by venue ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "classificationName",
+                  "value": "<string>",
+                  "description": "Filter by classification name (e.g., Music, Sports)"
+                },
+                {
+                  "disabled": false,
+                  "key": "classificationName",
+                  "value": "<string>",
+                  "description": "Filter by classification name (e.g., Music, Sports)"
+                },
+                {
+                  "disabled": false,
+                  "key": "classificationId",
+                  "value": "<string>",
+                  "description": "Filter by classification ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "countryCode",
+                  "value": "<string>",
+                  "description": "ISO country code filter (e.g., US, GB, AU)"
+                },
+                {
+                  "disabled": false,
+                  "key": "stateCode",
+                  "value": "<string>",
+                  "description": "US state code filter (e.g., CA, NY)"
+                },
+                {
+                  "disabled": false,
+                  "key": "city",
+                  "value": "<string>",
+                  "description": "City name filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "postalCode",
+                  "value": "<string>",
+                  "description": "Postal/zip code for location-based search"
+                },
+                {
+                  "disabled": false,
+                  "key": "latlong",
+                  "value": "<string>",
+                  "description": "Latitude,longitude for geographic search (e.g., 34.0,-118.0)"
+                },
+                {
+                  "disabled": false,
+                  "key": "radius",
+                  "value": "<integer>",
+                  "description": "Radius (in miles/km) for geographic search"
+                },
+                {
+                  "disabled": false,
+                  "key": "unit",
+                  "value": "<string>",
+                  "description": "Unit for radius filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDateTime",
+                  "value": "<dateTime>",
+                  "description": "Start date/time filter (ISO 8601)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime",
+                  "value": "<dateTime>",
+                  "description": "End date/time filter (ISO 8601)"
+                },
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>",
+                  "description": "Filter by ticket source"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeTest",
+                  "value": "<string>",
+                  "description": "Include test events"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "<integer>",
+                  "description": "Number of results per page (max 200)"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number (note: size × page < 1000)"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort order (e.g., date,asc or relevance,desc)"
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "Locale for response (e.g., en-us, fr-fr)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5a0313df-e125-4d22-be7f-5e168e9b99b7",
+              "name": "Event search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "keyword",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "attractionId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "venueId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "classificationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "classificationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "classificationId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "countryCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stateCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "postalCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latlong",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "unit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "endDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeTest",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_embedded\": {\n    \"events\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"type\": \"string\",\n        \"url\": \"https://NjgWsmjsWsOU.kqBuM,z8NjgYInqp-LFiugno1MLQi90\",\n        \"locale\": \"string\",\n        \"images\": [\n          {\n            \"ratio\": \"16_9\",\n            \"url\": \"https://SIpLiPVDVAQyJogoyvGf.bceycxtgyZEt1ufCVUiI0fYeQD324YPg.OKF1moWC,haHYAElp7Dsi..VpXxRyy4\",\n            \"width\": 5336,\n            \"height\": 8673,\n            \"fallback\": false\n          },\n          {\n            \"ratio\": \"3_2\",\n            \"url\": \"http://pHemJkTHabVo.lkooJPX6+xxeXa,DOxBgq6kq\",\n            \"width\": 7739,\n            \"height\": 9818,\n            \"fallback\": false\n          }\n        ],\n        \"dates\": {\n          \"start\": {\n            \"localDate\": \"2004-11-01\",\n            \"localTime\": \"02:28:23.396Z\",\n            \"dateTime\": \"1976-02-29T10:54:45.907Z\",\n            \"dateTBD\": false,\n            \"timeTBD\": true,\n            \"noSpecificTime\": false\n          },\n          \"end\": {\n            \"localDate\": \"1951-09-02\",\n            \"dateTime\": \"2025-03-05T17:38:28.216Z\"\n          },\n          \"status\": {\n            \"code\": \"onsale\"\n          },\n          \"timezone\": \"string\"\n        },\n        \"classifications\": [\n          {\n            \"primary\": false,\n            \"segment\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"genre\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"subGenre\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"type\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"subType\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"family\": false\n          },\n          {\n            \"primary\": true,\n            \"segment\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"genre\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"subGenre\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"type\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"subType\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"family\": false\n          }\n        ],\n        \"promoter\": {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\"\n        },\n        \"priceRanges\": [\n          {\n            \"type\": \"string\",\n            \"currency\": \"string\",\n            \"min\": 424.77707236799444,\n            \"max\": 6635.654621569761\n          },\n          {\n            \"type\": \"string\",\n            \"currency\": \"string\",\n            \"min\": 1309.0231199705227,\n            \"max\": 5437.334198744935\n          }\n        ],\n        \"seatmap\": {\n          \"staticUrl\": \"https://khagZnaTAUYOiYNTguj.nprllGAFvKr6O.Ked0e.0GdBsgAVuYT7BoxtP5GlxNbQWYVYo1N.rBICFEm1s-w.T4UR\"\n        },\n        \"_embedded\": {\n          \"venues\": [\n            {\n              \"id\": \"string\",\n              \"name\": \"string\",\n              \"type\": \"string\",\n              \"url\": \"https://mmmCIKmshLgSYvjWYiQiZNAz.lkcx6p87Ewy7ODgz9X,ueXToyPGbuRTTkFhtE\",\n              \"locale\": \"string\",\n              \"postalCode\": \"string\",\n              \"timezone\": \"string\",\n              \"city\": {\n                \"name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"state\": {\n                \"name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"stateCode\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"country\": {\n                \"name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"countryCode\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"address\": {\n                \"line1\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"line2\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"location\": {\n                \"longitude\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"latitude\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"images\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"upcomingEvents\": {}\n            },\n            {\n              \"id\": \"string\",\n              \"name\": \"string\",\n              \"type\": \"string\",\n              \"url\": \"https://vcPhJvtcwXwwrtNlJYOWLGpvfT.yybwCxGxzxx+HiN.yrogHxrKD2xoZ,UtsEe.I30LMLjx8WELlnFM\",\n              \"locale\": \"string\",\n              \"postalCode\": \"string\",\n              \"timezone\": \"string\",\n              \"city\": {\n                \"name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"state\": {\n                \"name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"stateCode\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"country\": {\n                \"name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"countryCode\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"address\": {\n                \"line1\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"line2\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"location\": {\n                \"longitude\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"latitude\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"images\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"upcomingEvents\": {}\n            }\n          ],\n          \"attractions\": [\n            {\n              \"id\": \"string\",\n              \"name\": \"string\",\n              \"type\": \"string\",\n              \"url\": \"https://ZvcFoqRIAYuMsCusRQrezCu.vwcKl-qd9XX1YieZshvq+RvFp4DwJ1Twc1MfzJUwQIX2YcnB91iwGgHXGVg41.\",\n              \"locale\": \"string\",\n              \"externalLinks\": {\n                \"key_0\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"key_1\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"images\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"classifications\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"upcomingEvents\": {}\n            },\n            {\n              \"id\": \"string\",\n              \"name\": \"string\",\n              \"type\": \"string\",\n              \"url\": \"https://mOoocPHOrqy.qoa0Pv.gvNDhi.Pct0WkoGI4Jw5U,gu6uXriUKNzZLbsl64XH0SvoQGp1EL7fYB7Q\",\n              \"locale\": \"string\",\n              \"externalLinks\": {\n                \"key_0\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"key_1\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"images\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"classifications\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"upcomingEvents\": {}\n            }\n          ]\n        }\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"type\": \"string\",\n        \"url\": \"http://dRDHlHZULLq.lsyZOtx0X2t-vN,3uV+ZkaWu.OK+TgVOPJCEd1QKbv0nVYV2qmJ0kgJrH\",\n        \"locale\": \"string\",\n        \"images\": [\n          {\n            \"ratio\": \"16_9\",\n            \"url\": \"https://iLQURdTUZ.gvgZCApGUDSG6nybXDCQnRKs2APk,rVEIshxRq9A+OnsObhtS.F-r8+Qr4ocBtp\",\n            \"width\": 1748,\n            \"height\": 674,\n            \"fallback\": true\n          },\n          {\n            \"ratio\": \"4_3\",\n            \"url\": \"https://p.vlqeFEKpanO\",\n            \"width\": 8383,\n            \"height\": 3012,\n            \"fallback\": false\n          }\n        ],\n        \"dates\": {\n          \"start\": {\n            \"localDate\": \"1951-01-05\",\n            \"localTime\": \"13:45:56.403Z\",\n            \"dateTime\": \"1977-11-05T03:39:57.722Z\",\n            \"dateTBD\": false,\n            \"timeTBD\": true,\n            \"noSpecificTime\": true\n          },\n          \"end\": {\n            \"localDate\": \"1948-04-23\",\n            \"dateTime\": \"1948-07-14T15:43:09.813Z\"\n          },\n          \"status\": {\n            \"code\": \"offsale\"\n          },\n          \"timezone\": \"string\"\n        },\n        \"classifications\": [\n          {\n            \"primary\": true,\n            \"segment\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"genre\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"subGenre\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"type\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"subType\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"family\": true\n          },\n          {\n            \"primary\": true,\n            \"segment\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"genre\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"subGenre\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"type\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"subType\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"family\": true\n          }\n        ],\n        \"promoter\": {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"description\": \"string\"\n        },\n        \"priceRanges\": [\n          {\n            \"type\": \"string\",\n            \"currency\": \"string\",\n            \"min\": 7938.002450316123,\n            \"max\": 1401.6606323957349\n          },\n          {\n            \"type\": \"string\",\n            \"currency\": \"string\",\n            \"min\": 3957.4479778315285,\n            \"max\": 6058.622557841338\n          }\n        ],\n        \"seatmap\": {\n          \"staticUrl\": \"https://jSURvbpdMfxVxQrqzmLmMs.ojVHx,kcBbDUHhVRCOO5KWAo8zcLhoHnhB,UdbX1Z\"\n        },\n        \"_embedded\": {\n          \"venues\": [\n            {\n              \"id\": \"string\",\n              \"name\": \"string\",\n              \"type\": \"string\",\n              \"url\": \"http://XglmdkkVavPhQmXzPS.qoivWU66NJELxB4oTf5UYe5XmboAij-,1MqJJuAA984lY\",\n              \"locale\": \"string\",\n              \"postalCode\": \"string\",\n              \"timezone\": \"string\",\n              \"city\": {\n                \"name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"state\": {\n                \"name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"stateCode\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"country\": {\n                \"name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"countryCode\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"address\": {\n                \"line1\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"line2\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"location\": {\n                \"longitude\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"latitude\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"images\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"upcomingEvents\": {}\n            },\n            {\n              \"id\": \"string\",\n              \"name\": \"string\",\n              \"type\": \"string\",\n              \"url\": \"https://UpFNYOSPOM.hml3,MI-NmaSqwTdI4UmG0BmsTNl9-MEmjIaD3cy\",\n              \"locale\": \"string\",\n              \"postalCode\": \"string\",\n              \"timezone\": \"string\",\n              \"city\": {\n                \"name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"state\": {\n                \"name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"stateCode\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"country\": {\n                \"name\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"countryCode\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"address\": {\n                \"line1\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"line2\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"location\": {\n                \"longitude\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"latitude\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"images\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"upcomingEvents\": {}\n            }\n          ],\n          \"attractions\": [\n            {\n              \"id\": \"string\",\n              \"name\": \"string\",\n              \"type\": \"string\",\n              \"url\": \"https://jUbBnURqqvRbYXmE.owDk6cvKyYAbUxAjiLTpiH9I9rG0\",\n              \"locale\": \"string\",\n              \"externalLinks\": {\n                \"key_0\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"key_1\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"images\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"classifications\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"upcomingEvents\": {}\n            },\n            {\n              \"id\": \"string\",\n              \"name\": \"string\",\n              \"type\": \"string\",\n              \"url\": \"http://qbfX.sckWE46eEJ\",\n              \"locale\": \"string\",\n              \"externalLinks\": {\n                \"key_0\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"key_1\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"images\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"classifications\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"upcomingEvents\": {}\n            }\n          ]\n        }\n      }\n    ]\n  },\n  \"_links\": {\n    \"self\": {\n      \"href\": \"string\"\n    },\n    \"next\": {\n      \"href\": \"string\"\n    },\n    \"prev\": {\n      \"href\": \"string\"\n    }\n  },\n  \"page\": {\n    \"size\": 9505,\n    \"totalElements\": 609,\n    \"totalPages\": 3827,\n    \"number\": 1392\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1138e17a-eef6-4da9-9ad1-0eb4634811fe",
+              "name": "Invalid API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "keyword",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "attractionId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "venueId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "classificationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "classificationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "classificationId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "countryCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stateCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "postalCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latlong",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "unit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "endDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeTest",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f425ade1-1b31-48fe-8910-ab34a06ca8ec",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "keyword",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "attractionId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "venueId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "classificationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "classificationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "classificationId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "countryCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stateCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "postalCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latlong",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "unit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "endDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeTest",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a5d58ca7-2bd6-4013-b0a7-8f5816defb48",
+          "name": "Get Event",
+          "request": {
+            "name": "Get Event",
+            "description": {
+              "content": "Retrieve details for a specific event by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "events",
+                "{{id}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "apikey",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "55a08d09-c017-4038-b386-e46bfc3a3d83",
+              "name": "Event details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events",
+                    "{{id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"type\": \"string\",\n  \"url\": \"https://BiGEonSbxqiCAgRvdRshomPeRGf.nfuEpZxbTAav7ch+G0dgHb0ZbJMATpOeSjmdtaq18jLoF3QVpeabb79\",\n  \"locale\": \"string\",\n  \"images\": [\n    {\n      \"ratio\": \"16_9\",\n      \"url\": \"http://IccvIcSKGAzHDAGuVlMjBbweuJYhOxO.mkrU5h,xkmyys3QhEeMcmlQkIk0N,HOihFZuDhOMjWp5EwYfHRXgdzRNNsAJd\",\n      \"width\": 6779,\n      \"height\": 461,\n      \"fallback\": true\n    },\n    {\n      \"ratio\": \"3_2\",\n      \"url\": \"https://ncEjqGo.zcH5d3DB42s35gdiM+Cl3DUHKLyQzoC7UYlI4J1W\",\n      \"width\": 7616,\n      \"height\": 7091,\n      \"fallback\": false\n    }\n  ],\n  \"dates\": {\n    \"start\": {\n      \"localDate\": \"1963-06-07\",\n      \"localTime\": \"14:25:06.694Z\",\n      \"dateTime\": \"2018-08-12T19:44:46.911Z\",\n      \"dateTBD\": false,\n      \"timeTBD\": false,\n      \"noSpecificTime\": true\n    },\n    \"end\": {\n      \"localDate\": \"2009-05-01\",\n      \"dateTime\": \"1958-06-17T02:44:42.988Z\"\n    },\n    \"status\": {\n      \"code\": \"rescheduled\"\n    },\n    \"timezone\": \"string\"\n  },\n  \"classifications\": [\n    {\n      \"primary\": false,\n      \"segment\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"genre\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"subGenre\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"type\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"subType\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"family\": false\n    },\n    {\n      \"primary\": true,\n      \"segment\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"genre\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"subGenre\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"type\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"subType\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"family\": false\n    }\n  ],\n  \"promoter\": {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\"\n  },\n  \"priceRanges\": [\n    {\n      \"type\": \"string\",\n      \"currency\": \"string\",\n      \"min\": 3838.5845985184965,\n      \"max\": 4019.4527650407185\n    },\n    {\n      \"type\": \"string\",\n      \"currency\": \"string\",\n      \"min\": 9986.738108354746,\n      \"max\": 7486.576967173367\n    }\n  ],\n  \"seatmap\": {\n    \"staticUrl\": \"http://jjYYQMVmmXlUKvmXtGJKTBsYtCVqja.flhzBqqF2e0grDQU,zFoR1YOfM9clpRNMgiBJEPy4IYd0xdufK4XT9ZEQRyKcSU8qsZNK\"\n  },\n  \"_embedded\": {\n    \"venues\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"type\": \"string\",\n        \"url\": \"http://UBv.icwA1Vfo4L4-DY9cYkvBoobROm,iYY4G,DOooTsl-.9u0HzSYBgtMpddOLQDeddn\",\n        \"locale\": \"string\",\n        \"postalCode\": \"string\",\n        \"timezone\": \"string\",\n        \"city\": {\n          \"name\": \"string\"\n        },\n        \"state\": {\n          \"name\": \"string\",\n          \"stateCode\": \"string\"\n        },\n        \"country\": {\n          \"name\": \"string\",\n          \"countryCode\": \"string\"\n        },\n        \"address\": {\n          \"line1\": \"string\",\n          \"line2\": \"string\"\n        },\n        \"location\": {\n          \"longitude\": \"string\",\n          \"latitude\": \"string\"\n        },\n        \"images\": [\n          {\n            \"ratio\": \"3_2\",\n            \"url\": \"http://RhtSzuARzVevmZSiRwF.ixqH+GsMom5c-pcg8Feoo96uFbzAZWhHf5\",\n            \"width\": 6170,\n            \"height\": 4878,\n            \"fallback\": false\n          },\n          {\n            \"ratio\": \"3_2\",\n            \"url\": \"https://iAEscGasvlhuJWuzYQpnrcf.hvE\",\n            \"width\": 4725,\n            \"height\": 4548,\n            \"fallback\": true\n          }\n        ],\n        \"upcomingEvents\": {}\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"type\": \"string\",\n        \"url\": \"https://nJHzkZen.hvsU9+j--TA4el,BNXbC.1qjzGbF+sNOhU.kMJs,Bbb9HO6\",\n        \"locale\": \"string\",\n        \"postalCode\": \"string\",\n        \"timezone\": \"string\",\n        \"city\": {\n          \"name\": \"string\"\n        },\n        \"state\": {\n          \"name\": \"string\",\n          \"stateCode\": \"string\"\n        },\n        \"country\": {\n          \"name\": \"string\",\n          \"countryCode\": \"string\"\n        },\n        \"address\": {\n          \"line1\": \"string\",\n          \"line2\": \"string\"\n        },\n        \"location\": {\n          \"longitude\": \"string\",\n          \"latitude\": \"string\"\n        },\n        \"images\": [\n          {\n            \"ratio\": \"3_2\",\n            \"url\": \"https://FjPDMjmDwkwtAVibdlVy.nqrq+LK+WZzmD6e6RuPLJkAYzXQtZE.LFfqsk3O9OwGh\",\n            \"width\": 1775,\n            \"height\": 4414,\n            \"fallback\": true\n          },\n          {\n            \"ratio\": \"3_2\",\n            \"url\": \"https://sqqshmqrzkgF.tvOh41gO4rqn6VlSft,ZwdXhGqdlragWtSfDqpU2z2kL0GcZgC-2N,jzS141SZMQTD\",\n            \"width\": 7759,\n            \"height\": 4124,\n            \"fallback\": false\n          }\n        ],\n        \"upcomingEvents\": {}\n      }\n    ],\n    \"attractions\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"type\": \"string\",\n        \"url\": \"http://IjPVZBfnyaXBEYmBCAbsKkkjTibgx.cazyonJWFMriKOHNvf\",\n        \"locale\": \"string\",\n        \"externalLinks\": {\n          \"key_0\": [\n            {\n              \"url\": \"https://QAgyQEUedKXCsJgKudaPSJKAOePSEE.txvmUTEYX98pcHgBCsyMXduIK3EfmDOPHJNkqvTxm+NzrYfhk1ODiH.\"\n            },\n            {\n              \"url\": \"https://moyntERDOMftfzEfAjxNIpZeoikMJ.uhdgkPZGFD1chGoT7xVtQU5BQOWcX.oiQMbFw0bJLxjHBziHlEBlMAuUew9htTzzqkZCzN-bFnXnLu\"\n            }\n          ],\n          \"key_1\": [\n            {\n              \"url\": \"http://UbWzPqSmltVZJqHsONGxteVVdHPGAl.sagzUs.EXdBUhju,HqJb8Ut7Xr.islCAg.daZK6lHRlcFkqpHEVsaHRXMyw1DmUfZrnwxxnQnC4\"\n            },\n            {\n              \"url\": \"https://lSqLWORTBRLgDhmZab.fgzuFeGx9LHVIDJd2Etg-iXi4E8yb9c2Tvr\"\n            }\n          ],\n          \"key_2\": [\n            {\n              \"url\": \"http://UuMHPASEbCJMN.lmtqXRXdXYxTCMbmfkm3kQmNB0VB8QmUWb5tAAttfUrn+iSKDNbuPP\"\n            },\n            {\n              \"url\": \"http://iJA.jkNFmnhruySeHYRo4Wt-xYVsuyrI6dvbAUBGDtleAjmxznjLI1mEL\"\n            }\n          ]\n        },\n        \"images\": [\n          {\n            \"ratio\": \"3_2\",\n            \"url\": \"http://E.kjjyyhgcOCSclS6IUM,kZwLv,s5ZDeVkJqUT-sxmXTaRa69rJWKLLmOkCdkzOtsM8ee3\",\n            \"width\": 4927,\n            \"height\": 3218,\n            \"fallback\": true\n          },\n          {\n            \"ratio\": \"16_9\",\n            \"url\": \"https://fIgYMhexmtlPYdtNFtWT.atFemEc\",\n            \"width\": 9913,\n            \"height\": 8627,\n            \"fallback\": true\n          }\n        ],\n        \"classifications\": [\n          {\n            \"primary\": true,\n            \"segment\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"genre\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"subGenre\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"type\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"subType\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"family\": true\n          },\n          {\n            \"primary\": false,\n            \"segment\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"genre\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"subGenre\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"type\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"subType\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"family\": true\n          }\n        ],\n        \"upcomingEvents\": {}\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"type\": \"string\",\n        \"url\": \"https://MeszWo.agkcQeGdwUnPivfhHZCpQ\",\n        \"locale\": \"string\",\n        \"externalLinks\": {\n          \"key_0\": [\n            {\n              \"url\": \"https://hVPsm.fco5bz1byJUQqEo3HWaBl.RGA\"\n            },\n            {\n              \"url\": \"http://pCnfsAHqRcsuSoMveyhnLoLU.www3GBTXqukYzfZ8GGZpt0.YXmAyRqSl2g4HwAH98VBFurvbi5V\"\n            }\n          ],\n          \"key_1\": [\n            {\n              \"url\": \"https://uJqlymDNfVjuhdOrcRtQDTMVV.okntWlAt2hFcpryVU8fmnE6JkmABOV6+7\"\n            },\n            {\n              \"url\": \"http://XVFsKCN.toqAqxQRYRpn9-BC.xHrKUykOuZ0fIHM7ztonv2\"\n            }\n          ]\n        },\n        \"images\": [\n          {\n            \"ratio\": \"16_9\",\n            \"url\": \"http://wpzVVv.nhhdBhB.-EJHWyLXjnVN3LrOFRnGxnvVQ.aThaiuTEKCeGwzEedOBFe3J,Slyz+\",\n            \"width\": 1738,\n            \"height\": 4487,\n            \"fallback\": true\n          },\n          {\n            \"ratio\": \"16_9\",\n            \"url\": \"https://mxANhdQHMSLNDj.krewjbEZuc6QyHBtIMtwbBdr-D-YEgbzEoq-CQWIMqMS2Zrp2sptFSVhpbdLriG4OGrPrnJhFAP\",\n            \"width\": 3708,\n            \"height\": 695,\n            \"fallback\": true\n          }\n        ],\n        \"classifications\": [\n          {\n            \"primary\": false,\n            \"segment\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"genre\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"subGenre\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"type\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"subType\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"family\": true\n          },\n          {\n            \"primary\": false,\n            \"segment\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"genre\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"subGenre\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"type\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"subType\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"family\": false\n          }\n        ],\n        \"upcomingEvents\": {}\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "65112b1c-3d78-4086-a269-870b4c183a4b",
+              "name": "Event not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events",
+                    "{{id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "13277528-95cb-4781-a80e-5005504590dc",
+          "name": "Get Event Images",
+          "request": {
+            "name": "Get Event Images",
+            "description": {
+              "content": "Retrieve all images for a specific event in various aspect ratios and sizes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "events",
+                ":id",
+                "images.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "apikey",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Ticketmaster event ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9c84d9d5-5fa0-4fdd-b4b3-44bfafbb85e5",
+              "name": "Event images",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events",
+                    ":id",
+                    "images.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Ticketmaster event ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"id\": \"string\",\n  \"images\": [\n    {\n      \"ratio\": \"16_9\",\n      \"url\": \"http://yuWDF.fzH0LZqaXGS7smncoXh91w,9c8hbc.Xkw9Yh0YaqF1ch-Mo6m-Oc,osNymRMDKy\",\n      \"width\": 4384,\n      \"height\": 5047,\n      \"fallback\": true\n    },\n    {\n      \"ratio\": \"16_9\",\n      \"url\": \"http://V.fvznJ65eYMdT8o2Pfgx88Z\",\n      \"width\": 3619,\n      \"height\": 2716,\n      \"fallback\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.ticketmaster.com/discovery/v2",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Ticketmaster event ID",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "id"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apikey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "46c4386a-c47f-4c16-9971-25608212cb56",
+    "name": "Ticketmaster Discovery Events API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Ticketmaster Discovery API allows developers to search for events, attractions, venues, and classifications across the Ticketmaster platform. Access over 230,000 events across the United States, Canada, Mexico, Australia, New Zealand, the UK, Ireland, and Europe. Content sources include Ticketmaster, Universe, FrontGate Tickets, and Ticketmaster Resale (TMR). Default quota is 5,000 API calls per day with a rate limit of 5 requests per second.\n\nContact Support:\n Name: Ticketmaster Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

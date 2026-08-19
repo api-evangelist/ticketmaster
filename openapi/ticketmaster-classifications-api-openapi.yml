@@ -1,0 +1,100 @@
+openapi: 3.2.0
+info:
+  title: Ticketmaster Discovery Classifications API
+  description: The Ticketmaster Discovery API allows developers to search for events, attractions, venues, and classifications across the Ticketmaster platform. Access over 230,000 events across the United States, Canada, Mexico, Australia, New Zealand, the UK, Ireland, and Europe. Content sources include Ticketmaster, Universe, FrontGate Tickets, and Ticketmaster Resale (TMR). Default quota is 5,000 API calls per day with a rate limit of 5 requests per second.
+  version: '2.0'
+  contact:
+    name: Ticketmaster Developer Support
+    url: https://developer.ticketmaster.com
+  termsOfService: https://developer.ticketmaster.com/support/terms-of-use/
+servers:
+- url: https://app.ticketmaster.com/discovery/v2
+  description: Ticketmaster Discovery API v2
+security:
+- ApiKeyQuery: []
+tags:
+- name: Classifications
+  description: Browse event segments, genres, and sub-genres
+paths:
+  /classifications.json:
+    get:
+      operationId: searchClassifications
+      summary: Search Classifications
+      description: Browse event segments, genres, and sub-genres available on Ticketmaster.
+      tags:
+      - Classifications
+      parameters:
+      - name: apikey
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: keyword
+        in: query
+        schema:
+          type: string
+      - name: size
+        in: query
+        schema:
+          type: integer
+      - name: page
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Classification search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationSearchResponse'
+components:
+  schemas:
+    Page:
+      type: object
+      properties:
+        size:
+          type: integer
+        totalElements:
+          type: integer
+        totalPages:
+          type: integer
+        number:
+          type: integer
+    ClassificationSearchResponse:
+      type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            classifications:
+              type: array
+              items:
+                type: object
+        _links:
+          $ref: '#/components/schemas/Links'
+        page:
+          $ref: '#/components/schemas/Page'
+    Links:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+        next:
+          type: object
+          properties:
+            href:
+              type: string
+        prev:
+          type: object
+          properties:
+            href:
+              type: string
+  securitySchemes:
+    ApiKeyQuery:
+      type: apiKey
+      in: query
+      name: apikey

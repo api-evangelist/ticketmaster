@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Ticketmaster Commerce Availability API
   description: The Ticketmaster Commerce API enables developers to retrieve ticket availability, pricing, and purchase links for events. Provides access to event inventory status, top picks, and checkout URLs to redirect users to the Ticketmaster purchase flow.

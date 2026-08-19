@@ -1,0 +1,117 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ticketmaster Discovery Venues API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Venues",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Venues",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.ticketmaster.com/discovery/v2/venues.json",
+            "params": [
+              {
+                "name": "apikey",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "keyword",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "countryCode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "stateCode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "city",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "latlong",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "radius",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search for venues on the Ticketmaster platform by name, location, or country."
+        },
+        {
+          "info": {
+            "name": "Get Venue",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.ticketmaster.com/discovery/v2/venues/:id.json",
+            "params": [
+              {
+                "name": "apikey",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve details for a specific venue by ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

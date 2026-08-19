@@ -1,0 +1,223 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ticketmaster Discovery Events API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.ticketmaster.com/discovery/v2/events.json",
+            "params": [
+              {
+                "name": "apikey",
+                "value": "",
+                "type": "query",
+                "description": "Your Ticketmaster API Key"
+              },
+              {
+                "name": "keyword",
+                "value": "",
+                "type": "query",
+                "description": "Keyword search term"
+              },
+              {
+                "name": "attractionId",
+                "value": "",
+                "type": "query",
+                "description": "Filter by attraction ID"
+              },
+              {
+                "name": "venueId",
+                "value": "",
+                "type": "query",
+                "description": "Filter by venue ID"
+              },
+              {
+                "name": "classificationName",
+                "value": "",
+                "type": "query",
+                "description": "Filter by classification name (e.g., Music, Sports)"
+              },
+              {
+                "name": "classificationId",
+                "value": "",
+                "type": "query",
+                "description": "Filter by classification ID"
+              },
+              {
+                "name": "countryCode",
+                "value": "",
+                "type": "query",
+                "description": "ISO country code filter (e.g., US, GB, AU)"
+              },
+              {
+                "name": "stateCode",
+                "value": "",
+                "type": "query",
+                "description": "US state code filter (e.g., CA, NY)"
+              },
+              {
+                "name": "city",
+                "value": "",
+                "type": "query",
+                "description": "City name filter"
+              },
+              {
+                "name": "postalCode",
+                "value": "",
+                "type": "query",
+                "description": "Postal/zip code for location-based search"
+              },
+              {
+                "name": "latlong",
+                "value": "",
+                "type": "query",
+                "description": "Latitude,longitude for geographic search (e.g., 34.0,-118.0)"
+              },
+              {
+                "name": "radius",
+                "value": "",
+                "type": "query",
+                "description": "Radius (in miles/km) for geographic search"
+              },
+              {
+                "name": "unit",
+                "value": "",
+                "type": "query",
+                "description": "Unit for radius filter"
+              },
+              {
+                "name": "startDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Start date/time filter (ISO 8601)"
+              },
+              {
+                "name": "endDateTime",
+                "value": "",
+                "type": "query",
+                "description": "End date/time filter (ISO 8601)"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "Filter by ticket source"
+              },
+              {
+                "name": "includeTest",
+                "value": "",
+                "type": "query",
+                "description": "Include test events"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page (max 200)"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (note: size × page < 1000)"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort order (e.g., date,asc or relevance,desc)"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Locale for response (e.g., en-us, fr-fr)"
+              }
+            ]
+          },
+          "docs": "Search for live events across the Ticketmaster platform by keyword, location, date range, attraction, venue, classification, and more. Returns paginated results with event details, venue info, images, and pricing."
+        },
+        {
+          "info": {
+            "name": "Get Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.ticketmaster.com/discovery/v2/events/:id.json",
+            "params": [
+              {
+                "name": "apikey",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Ticketmaster event ID"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve details for a specific event by ID."
+        },
+        {
+          "info": {
+            "name": "Get Event Images",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.ticketmaster.com/discovery/v2/events/:id/images.json",
+            "params": [
+              {
+                "name": "apikey",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Ticketmaster event ID"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve all images for a specific event in various aspect ratios and sizes."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,60 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ticketmaster Discovery Suggestions API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Suggestions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Search Suggestions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.ticketmaster.com/discovery/v2/suggest.json",
+            "params": [
+              {
+                "name": "apikey",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "keyword",
+                "value": "",
+                "type": "query",
+                "description": "Partial search keyword"
+              },
+              {
+                "name": "countryCode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns search suggestions for events, attractions, and venues based on a keyword."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

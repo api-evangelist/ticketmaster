@@ -1,0 +1,221 @@
+openapi: 3.2.0
+info:
+  title: Ticketmaster Discovery Attractions API
+  description: The Ticketmaster Discovery API allows developers to search for events, attractions, venues, and classifications across the Ticketmaster platform. Access over 230,000 events across the United States, Canada, Mexico, Australia, New Zealand, the UK, Ireland, and Europe. Content sources include Ticketmaster, Universe, FrontGate Tickets, and Ticketmaster Resale (TMR). Default quota is 5,000 API calls per day with a rate limit of 5 requests per second.
+  version: '2.0'
+  contact:
+    name: Ticketmaster Developer Support
+    url: https://developer.ticketmaster.com
+  termsOfService: https://developer.ticketmaster.com/support/terms-of-use/
+servers:
+- url: https://app.ticketmaster.com/discovery/v2
+  description: Ticketmaster Discovery API v2
+security:
+- ApiKeyQuery: []
+tags:
+- name: Attractions
+  description: Search artists, sports teams, and other attractions
+paths:
+  /attractions.json:
+    get:
+      operationId: searchAttractions
+      summary: Search Attractions
+      description: Search for attractions (artists, sports teams, theaters, etc.) on the Ticketmaster platform.
+      tags:
+      - Attractions
+      parameters:
+      - name: apikey
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: keyword
+        in: query
+        schema:
+          type: string
+      - name: classificationName
+        in: query
+        schema:
+          type: string
+      - name: classificationId
+        in: query
+        schema:
+          type: string
+      - name: countryCode
+        in: query
+        schema:
+          type: string
+      - name: size
+        in: query
+        schema:
+          type: integer
+      - name: page
+        in: query
+        schema:
+          type: integer
+      - name: locale
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Attraction search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AttractionSearchResponse'
+  /attractions/{id}.json:
+    get:
+      operationId: getAttraction
+      summary: Get Attraction
+      description: Retrieve details for a specific attraction by ID.
+      tags:
+      - Attractions
+      parameters:
+      - name: apikey
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: locale
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Attraction details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Attraction'
+components:
+  schemas:
+    Classification:
+      type: object
+      properties:
+        primary:
+          type: boolean
+        segment:
+          $ref: '#/components/schemas/ClassificationEntity'
+        genre:
+          $ref: '#/components/schemas/ClassificationEntity'
+        subGenre:
+          $ref: '#/components/schemas/ClassificationEntity'
+        type:
+          $ref: '#/components/schemas/ClassificationEntity'
+        subType:
+          $ref: '#/components/schemas/ClassificationEntity'
+        family:
+          type: boolean
+    Page:
+      type: object
+      properties:
+        size:
+          type: integer
+        totalElements:
+          type: integer
+        totalPages:
+          type: integer
+        number:
+          type: integer
+    Links:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+        next:
+          type: object
+          properties:
+            href:
+              type: string
+        prev:
+          type: object
+          properties:
+            href:
+              type: string
+    Image:
+      type: object
+      properties:
+        ratio:
+          type: string
+          enum:
+          - '16_9'
+          - '3_2'
+          - '4_3'
+        url:
+          type: string
+          format: uri
+        width:
+          type: integer
+        height:
+          type: integer
+        fallback:
+          type: boolean
+    AttractionSearchResponse:
+      type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            attractions:
+              type: array
+              items:
+                $ref: '#/components/schemas/Attraction'
+        _links:
+          $ref: '#/components/schemas/Links'
+        page:
+          $ref: '#/components/schemas/Page'
+    Attraction:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        url:
+          type: string
+          format: uri
+        locale:
+          type: string
+        externalLinks:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: object
+              properties:
+                url:
+                  type: string
+                  format: uri
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/Image'
+        classifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/Classification'
+        upcomingEvents:
+          type: object
+    ClassificationEntity:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+  securitySchemes:
+    ApiKeyQuery:
+      type: apiKey
+      in: query
+      name: apikey

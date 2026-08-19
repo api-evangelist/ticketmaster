@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ticketmaster Commerce Availability Offerings API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Offerings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Event Offers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.ticketmaster.com/commerce/v2/events/:eventId/offers.json",
+            "params": [
+              {
+                "name": "apikey",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path",
+                "description": "Ticketmaster event ID"
+              }
+            ]
+          },
+          "docs": "Returns ticket offering details for a specific event, including price ranges, ticket limits, and purchase URLs."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

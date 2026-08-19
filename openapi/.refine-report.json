@@ -1,18 +1,35 @@
 {
   "provider": "ticketmaster",
   "sources": [
+    "ticketmaster-attractions-api-openapi.yml",
     "ticketmaster-availability-api-openapi.yml",
-    "ticketmaster-offerings-api-openapi.yml"
+    "ticketmaster-classifications-api-openapi.yml",
+    "ticketmaster-events-api-openapi.yml",
+    "ticketmaster-offerings-api-openapi.yml",
+    "ticketmaster-suggestions-api-openapi.yml",
+    "ticketmaster-venues-api-openapi.yml"
   ],
   "outputs": [
+    "ticketmaster-attractions-api-openapi.yml",
     "ticketmaster-availability-api-openapi.yml",
-    "ticketmaster-offerings-api-openapi.yml"
+    "ticketmaster-classifications-api-openapi.yml",
+    "ticketmaster-events-api-openapi.yml",
+    "ticketmaster-offerings-api-openapi.yml",
+    "ticketmaster-suggestions-api-openapi.yml",
+    "ticketmaster-venues-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": [
-    "ticketmaster-discovery-openapi.yml: parse error ScannerError: mapping values are not allowed here"
-  ]
+  "notes": [
+    "ticketmaster-attractions-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "ticketmaster-availability-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "ticketmaster-classifications-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "ticketmaster-events-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "ticketmaster-offerings-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "ticketmaster-suggestions-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "ticketmaster-venues-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": []
 }

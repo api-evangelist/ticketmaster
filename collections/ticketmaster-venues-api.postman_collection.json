@@ -1,0 +1,323 @@
+{
+  "item": [
+    {
+      "id": "da70c5ec-5ee2-4e47-9138-5b7339cf258d",
+      "name": "Venues",
+      "description": {
+        "content": "Search and retrieve venue information",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e7c7d8f1-8f25-4a5a-974c-d62ad3c55c75",
+          "name": "Search Venues",
+          "request": {
+            "name": "Search Venues",
+            "description": {
+              "content": "Search for venues on the Ticketmaster platform by name, location, or country.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "venues.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "apikey",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "keyword",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "countryCode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "stateCode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "city",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "latlong",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "radius",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "887bc5ce-7caa-4141-9d19-cfd8f5195760",
+              "name": "Venue search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "venues.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "keyword",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "countryCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stateCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latlong",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_embedded\": {\n    \"venues\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"type\": \"string\",\n        \"url\": \"http://ppjenevJwVlXOKYYQnDTOuIPT.dotGDuadfQetGOGxQnNWAA,tEK.y-lZPXvYe\",\n        \"locale\": \"string\",\n        \"postalCode\": \"string\",\n        \"timezone\": \"string\",\n        \"city\": {\n          \"name\": \"string\"\n        },\n        \"state\": {\n          \"name\": \"string\",\n          \"stateCode\": \"string\"\n        },\n        \"country\": {\n          \"name\": \"string\",\n          \"countryCode\": \"string\"\n        },\n        \"address\": {\n          \"line1\": \"string\",\n          \"line2\": \"string\"\n        },\n        \"location\": {\n          \"longitude\": \"string\",\n          \"latitude\": \"string\"\n        },\n        \"images\": [\n          {\n            \"ratio\": \"16_9\",\n            \"url\": \"http://CtkbfidYTqLtEUezjNURepi.fqNnhymIRDk9Q8sgQgDQvI2Uh3OXqrtb4XJo71xvThUdRLL2fbU\",\n            \"width\": 2133,\n            \"height\": 7218,\n            \"fallback\": false\n          },\n          {\n            \"ratio\": \"4_3\",\n            \"url\": \"http://UnUNDbDyrMCfnbgpLhyePthBfsWkSJt.wtz8WNfWZ9lWf7NylTR-V.dhcKOMbgNVJF8oO1CoyNxrxbffSEDM\",\n            \"width\": 7778,\n            \"height\": 8113,\n            \"fallback\": false\n          }\n        ],\n        \"upcomingEvents\": {}\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"type\": \"string\",\n        \"url\": \"https://hcezUgeMhcRnEkQSJPJjYYsxBpDd.wtnGq9Xp8d-QM\",\n        \"locale\": \"string\",\n        \"postalCode\": \"string\",\n        \"timezone\": \"string\",\n        \"city\": {\n          \"name\": \"string\"\n        },\n        \"state\": {\n          \"name\": \"string\",\n          \"stateCode\": \"string\"\n        },\n        \"country\": {\n          \"name\": \"string\",\n          \"countryCode\": \"string\"\n        },\n        \"address\": {\n          \"line1\": \"string\",\n          \"line2\": \"string\"\n        },\n        \"location\": {\n          \"longitude\": \"string\",\n          \"latitude\": \"string\"\n        },\n        \"images\": [\n          {\n            \"ratio\": \"4_3\",\n            \"url\": \"https://okpKzJG.svoaIsZHxF3CwGDZmmw8RmVsy2zZiWFHVnrKYRT8IZvem\",\n            \"width\": 562,\n            \"height\": 664,\n            \"fallback\": true\n          },\n          {\n            \"ratio\": \"16_9\",\n            \"url\": \"http://KsAMatnnrHSxyBQcDtpocuCywP.eeFdMhuV76xyYvVhmzIQeppZOIkjXlYXM3yBq7ThW4GixQRNUUrTx-N.top29XZjL+m5\",\n            \"width\": 7123,\n            \"height\": 5414,\n            \"fallback\": false\n          }\n        ],\n        \"upcomingEvents\": {}\n      }\n    ]\n  },\n  \"_links\": {\n    \"self\": {\n      \"href\": \"string\"\n    },\n    \"next\": {\n      \"href\": \"string\"\n    },\n    \"prev\": {\n      \"href\": \"string\"\n    }\n  },\n  \"page\": {\n    \"size\": 4843,\n    \"totalElements\": 3999,\n    \"totalPages\": 881,\n    \"number\": 7326\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b38d61d0-54a3-48b8-bf1e-a5f5ca7d03ad",
+          "name": "Get Venue",
+          "request": {
+            "name": "Get Venue",
+            "description": {
+              "content": "Retrieve details for a specific venue by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "venues",
+                "{{id}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "apikey",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c047c538-8b4d-460c-ba70-bdb57c243bd8",
+              "name": "Venue details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "venues",
+                    "{{id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"type\": \"string\",\n  \"url\": \"https://MqDnNeh.rnfLGLijhTx0xNEWRSOeaEYUKXXv,MbutQbvx8pod83dqD7.2uwRTacbf3uo+EiiEHjczbrtmPl\",\n  \"locale\": \"string\",\n  \"postalCode\": \"string\",\n  \"timezone\": \"string\",\n  \"city\": {\n    \"name\": \"string\"\n  },\n  \"state\": {\n    \"name\": \"string\",\n    \"stateCode\": \"string\"\n  },\n  \"country\": {\n    \"name\": \"string\",\n    \"countryCode\": \"string\"\n  },\n  \"address\": {\n    \"line1\": \"string\",\n    \"line2\": \"string\"\n  },\n  \"location\": {\n    \"longitude\": \"string\",\n    \"latitude\": \"string\"\n  },\n  \"images\": [\n    {\n      \"ratio\": \"16_9\",\n      \"url\": \"https://hLvCFcTqcwxIRnswwpxBBZiqNKNE.zqynJ4d1VyWrDq\",\n      \"width\": 9665,\n      \"height\": 1349,\n      \"fallback\": false\n    },\n    {\n      \"ratio\": \"16_9\",\n      \"url\": \"https://OClOvTtZdkn.datunf8gN6GqyqCp.Vgax1Mi7op77RzR,BHTtuqsUvEmMCh0HnFgt\",\n      \"width\": 6645,\n      \"height\": 1030,\n      \"fallback\": false\n    }\n  ],\n  \"upcomingEvents\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.ticketmaster.com/discovery/v2",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "id"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apikey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7a9ab70f-b10b-4939-a1c6-c2d2d577edfb",
+    "name": "Ticketmaster Discovery Venues API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Ticketmaster Discovery API allows developers to search for events, attractions, venues, and classifications across the Ticketmaster platform. Access over 230,000 events across the United States, Canada, Mexico, Australia, New Zealand, the UK, Ireland, and Europe. Content sources include Ticketmaster, Universe, FrontGate Tickets, and Ticketmaster Resale (TMR). Default quota is 5,000 API calls per day with a rate limit of 5 requests per second.\n\nContact Support:\n Name: Ticketmaster Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

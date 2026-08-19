@@ -1,0 +1,107 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ticketmaster Discovery Attractions API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Attractions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Attractions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.ticketmaster.com/discovery/v2/attractions.json",
+            "params": [
+              {
+                "name": "apikey",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "keyword",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "classificationName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "classificationId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "countryCode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search for attractions (artists, sports teams, theaters, etc.) on the Ticketmaster platform."
+        },
+        {
+          "info": {
+            "name": "Get Attraction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.ticketmaster.com/discovery/v2/attractions/:id.json",
+            "params": [
+              {
+                "name": "apikey",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve details for a specific attraction by ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

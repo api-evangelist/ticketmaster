@@ -1,0 +1,305 @@
+{
+  "item": [
+    {
+      "id": "909c3ac6-96a6-4966-910e-ce5b82b6fa1b",
+      "name": "Attractions",
+      "description": {
+        "content": "Search artists, sports teams, and other attractions",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e6b2c486-f510-41ba-bb17-03b64ad8803f",
+          "name": "Search Attractions",
+          "request": {
+            "name": "Search Attractions",
+            "description": {
+              "content": "Search for attractions (artists, sports teams, theaters, etc.) on the Ticketmaster platform.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "attractions.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "apikey",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "keyword",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "classificationName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "classificationId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "countryCode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "78d9f8dc-1853-4044-9ca9-bea8eeb677e0",
+              "name": "Attraction search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attractions.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "keyword",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "classificationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "classificationId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "countryCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_embedded\": {\n    \"attractions\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"type\": \"string\",\n        \"url\": \"http://RppKldkujywmdRTIUGpobGJgUTy.exgek-roV-IVtEjqSw6.6EHkpIi..bdmfUYULAQHwFDb3YllOcBPc0dNfW2m0VXDpB\",\n        \"locale\": \"string\",\n        \"externalLinks\": {\n          \"key_0\": [\n            {\n              \"url\": \"https://dnozlLA.llBsiU320j0jRSCs7CVa\"\n            },\n            {\n              \"url\": \"http://JYZRtlCynBTkhudUNl.rdcRlIuW.shNTA\"\n            }\n          ]\n        },\n        \"images\": [\n          {\n            \"ratio\": \"4_3\",\n            \"url\": \"http://nJlukiGdVtRDLtMkGEQ.ljrj-6GMBT6Ia7V1TfRP8RdMixjs\",\n            \"width\": 7357,\n            \"height\": 2341,\n            \"fallback\": false\n          },\n          {\n            \"ratio\": \"4_3\",\n            \"url\": \"http://lcfJUrdveufhPClYEr.ppjD+3gh0xStgGs1BzvEIOqOo1QCMhm3fcQRHj74BhoRGAA5\",\n            \"width\": 6232,\n            \"height\": 2599,\n            \"fallback\": true\n          }\n        ],\n        \"classifications\": [\n          {\n            \"primary\": false,\n            \"segment\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"genre\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"subGenre\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"type\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"subType\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"family\": true\n          },\n          {\n            \"primary\": false,\n            \"segment\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"genre\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"subGenre\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"type\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"subType\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"family\": false\n          }\n        ],\n        \"upcomingEvents\": {}\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"type\": \"string\",\n        \"url\": \"https://GCPOHBGNoQZsUkkFjUBPLClKmsBDr.hdhazCY9y4ceGIqKXeDSKoMyFyMz0kVfrDU3KvCi8b.4aOLNvGfNk1rk2xkiiDze.z6.\",\n        \"locale\": \"string\",\n        \"externalLinks\": {\n          \"key_0\": [\n            {\n              \"url\": \"https://VXQOtuHNsgQuQgFd.jdzwHEvE3iOKn\"\n            },\n            {\n              \"url\": \"https://oUjrkhgBOgCvGsndesbWfsSKx.uzPWWSgnz.QafdpK2GULJwFQUoP5,APIGYrf11PHJaZ,f9uyh9\"\n            }\n          ],\n          \"key_1\": [\n            {\n              \"url\": \"https://pyEcbJmfdMhDPuovsOqjwfXIBqTQA.hjwybOlS+AynT8sa3g4ZhtTKh\"\n            },\n            {\n              \"url\": \"http://KXSQStRWRSShTCibRHpVfxfjmIZ.uqCpE-CG+1Lb7xTMmyN\"\n            }\n          ]\n        },\n        \"images\": [\n          {\n            \"ratio\": \"16_9\",\n            \"url\": \"https://xpOo.vhnrM.zTkdNC5ZbZWVZPVDdMD91\",\n            \"width\": 9414,\n            \"height\": 629,\n            \"fallback\": true\n          },\n          {\n            \"ratio\": \"16_9\",\n            \"url\": \"https://nZ.cbvhfGA4sqJg7mhixEVS7XuSxhm5KSVYEdyX,jVY5BfGwy7gfBgP7\",\n            \"width\": 4766,\n            \"height\": 7738,\n            \"fallback\": false\n          }\n        ],\n        \"classifications\": [\n          {\n            \"primary\": true,\n            \"segment\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"genre\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"subGenre\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"type\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"subType\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"family\": false\n          },\n          {\n            \"primary\": true,\n            \"segment\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"genre\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"subGenre\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"type\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"subType\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"family\": false\n          }\n        ],\n        \"upcomingEvents\": {}\n      }\n    ]\n  },\n  \"_links\": {\n    \"self\": {\n      \"href\": \"string\"\n    },\n    \"next\": {\n      \"href\": \"string\"\n    },\n    \"prev\": {\n      \"href\": \"string\"\n    }\n  },\n  \"page\": {\n    \"size\": 1151,\n    \"totalElements\": 6044,\n    \"totalPages\": 9239,\n    \"number\": 9209\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "537d91c0-bdec-48af-b404-ac1eca59eb58",
+          "name": "Get Attraction",
+          "request": {
+            "name": "Get Attraction",
+            "description": {
+              "content": "Retrieve details for a specific attraction by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "attractions",
+                "{{id}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "apikey",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8f113fd5-97f5-4027-a8d5-e4d643abcd01",
+              "name": "Attraction details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attractions",
+                    "{{id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apikey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"type\": \"string\",\n  \"url\": \"http://crEFTnQ.bzvkXrpcBeovp7Oioz3CM4biLNBPnfQhb3heOalRejZLyGG8gZvZB\",\n  \"locale\": \"string\",\n  \"externalLinks\": {\n    \"key_0\": [\n      {\n        \"url\": \"https://WAs.pfrwLivKkNPtHjt8OyBaK,cwY4ZnUwQz8.8RsSNvGVtYMMRWFrXaLwYCrvCis\"\n      },\n      {\n        \"url\": \"https://ctCtvoxnKKORarWidIKHwibITILRjztgi.ehgnFJjqZcS4UY0xdJ9O3Dx5kmfcewrFbK+-SAnMFepgoXFKH.7mjyz9V6duix\"\n      }\n    ]\n  },\n  \"images\": [\n    {\n      \"ratio\": \"4_3\",\n      \"url\": \"https://OkDItDCbeDgCOsFEYfRMzf.ovboD-GJODZtn-ePQN9dHnvrf6i3KZigb5zrQyNj1JhKkZtI6ACgjaM-J\",\n      \"width\": 1621,\n      \"height\": 7102,\n      \"fallback\": false\n    },\n    {\n      \"ratio\": \"16_9\",\n      \"url\": \"http://ceUuVZpUBtumnG.jkeuyxl-dfsyK+IfRH0\",\n      \"width\": 6848,\n      \"height\": 9091,\n      \"fallback\": true\n    }\n  ],\n  \"classifications\": [\n    {\n      \"primary\": true,\n      \"segment\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"genre\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"subGenre\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"type\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"subType\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"family\": true\n    },\n    {\n      \"primary\": true,\n      \"segment\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"genre\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"subGenre\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"type\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"subType\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      \"family\": false\n    }\n  ],\n  \"upcomingEvents\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.ticketmaster.com/discovery/v2",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "id"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apikey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8d8e3e0c-f9f6-4d7b-a7a0-51a3cfcbc346",
+    "name": "Ticketmaster Discovery Attractions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Ticketmaster Discovery API allows developers to search for events, attractions, venues, and classifications across the Ticketmaster platform. Access over 230,000 events across the United States, Canada, Mexico, Australia, New Zealand, the UK, Ireland, and Europe. Content sources include Ticketmaster, Universe, FrontGate Tickets, and Ticketmaster Resale (TMR). Default quota is 5,000 API calls per day with a rate limit of 5 requests per second.\n\nContact Support:\n Name: Ticketmaster Developer Support",
+      "type": "text/plain"
+    }
+  }
+}
