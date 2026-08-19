@@ -30,7 +30,7 @@ tags:
   - Venues
 created: '2025-01-08'
 modified: '2026-05-19'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: ticketmaster:ticketmaster-partner-api
   name: Ticketmaster Partner API
