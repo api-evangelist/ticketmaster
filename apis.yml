@@ -24,6 +24,14 @@ tags:
   - Commerce
   - Concerts
   - Entertainment
+  - Event
+  - Sports
+  - Tickets
+  - Venues
+tags_raw:
+  - Commerce
+  - Concerts
+  - Entertainment
   - Events
   - Sports
   - Tickets
@@ -109,6 +117,8 @@ apis:
   humanURL: https://developer.ticketmaster.com/products-and-docs/apis/partner/
   baseURL: https://app.ticketmaster.com/partners/v1
   tags:
+  - Event
+  tags_raw:
   - Events
   properties:
   - type: OpenAPI
