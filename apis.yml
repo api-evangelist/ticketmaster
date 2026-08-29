@@ -6,6 +6,18 @@ description: >-
   sports, theater, and other live events globally. Their developer platform offers APIs for event discovery, ticket
   commerce, venue data, and partner integrations, giving developers access to over 230,000 events across dozens of
   countries.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
