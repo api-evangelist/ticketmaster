@@ -1,20 +1,33 @@
-generated: '2026-07-15'
+generated: '2026-09-16'
 method: generated
-source: openapi/ticketmaster-commerce-openapi.yml
+source: openapi/ticketmaster-attractions-api-openapi.yml, openapi/ticketmaster-availability-api-openapi.yml,
+  openapi/ticketmaster-classifications-api-openapi.yml, openapi/ticketmaster-events-api-openapi.yml,
+  openapi/ticketmaster-offerings-api-openapi.yml, openapi/ticketmaster-suggestions-api-openapi.yml,
+  openapi/ticketmaster-venues-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
-  operations: 2
+  operations: 11
   by_action_class:
-    connected: 2
+    connected: 11
   by_consequence:
-    read: 2
+    read: 11
   human_in_the_loop_required: 0
 operations:
-- path: /events/{eventId}/offers.json
+- path: /attractions.json
   method: get
-  operationId: getEventOffers
+  operationId: searchAttractions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /attractions/{id}.json
+  method: get
+  operationId: getAttraction
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -25,6 +38,86 @@ operations:
 - path: /events/{eventId}/availability.json
   method: get
   operationId: getEventAvailability
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /classifications.json
+  method: get
+  operationId: searchClassifications
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events.json
+  method: get
+  operationId: searchEvents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/{id}.json
+  method: get
+  operationId: getEvent
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/{id}/images.json
+  method: get
+  operationId: getEventImages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/{eventId}/offers.json
+  method: get
+  operationId: getEventOffers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /suggest.json
+  method: get
+  operationId: getSuggestions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /venues.json
+  method: get
+  operationId: searchVenues
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /venues/{id}.json
+  method: get
+  operationId: getVenue
   x-agentic-access:
     action-class: connected
     consequence: read
