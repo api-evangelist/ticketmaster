@@ -64,6 +64,11 @@ apis:
   baseURL: https://app.ticketmaster.com/partners/v1
   tags:
   - Commerce
+  - Partners
+  - Reservations
+  - Tickets
+  tags_raw:
+  - Commerce
   - Partner
   - Reservations
   - Tickets
