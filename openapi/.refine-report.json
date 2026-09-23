@@ -1,20 +1,15 @@
 {
   "provider": "ticketmaster",
   "sources": [
-    "ticketmaster-attractions-api-openapi.yml",
-    "ticketmaster-availability-api-openapi.yml",
-    "ticketmaster-classifications-api-openapi.yml",
-    "ticketmaster-events-api-openapi.yml",
-    "ticketmaster-offerings-api-openapi.yml",
-    "ticketmaster-suggestions-api-openapi.yml",
-    "ticketmaster-venues-api-openapi.yml"
+    "_original/ticketmaster-commerce-openapi.yml",
+    "_original/ticketmaster-discovery-openapi.yml"
   ],
   "outputs": [
-    "ticketmaster-attractions-api-openapi.yml",
     "ticketmaster-availability-api-openapi.yml",
+    "ticketmaster-offerings-api-openapi.yml",
+    "ticketmaster-attractions-api-openapi.yml",
     "ticketmaster-classifications-api-openapi.yml",
     "ticketmaster-events-api-openapi.yml",
-    "ticketmaster-offerings-api-openapi.yml",
     "ticketmaster-suggestions-api-openapi.yml",
     "ticketmaster-venues-api-openapi.yml"
   ],
@@ -22,14 +17,18 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "ticketmaster-attractions-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "ticketmaster-availability-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "ticketmaster-classifications-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "ticketmaster-events-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "ticketmaster-offerings-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "ticketmaster-suggestions-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "ticketmaster-venues-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "ticketmaster-commerce-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "ticketmaster-discovery-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "ticketmaster-attractions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ticketmaster-availability-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ticketmaster-classifications-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ticketmaster-events-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ticketmaster-offerings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ticketmaster-suggestions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ticketmaster-venues-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

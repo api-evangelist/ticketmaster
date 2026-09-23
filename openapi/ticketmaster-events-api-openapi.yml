@@ -222,6 +222,38 @@ paths:
                 $ref: '#/components/schemas/EventImages'
 components:
   schemas:
+    EventSearchResponse:
+      type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            events:
+              type: array
+              items:
+                $ref: '#/components/schemas/Event'
+        _links:
+          $ref: '#/components/schemas/Links'
+        page:
+          $ref: '#/components/schemas/Page'
+    Image:
+      type: object
+      properties:
+        ratio:
+          type: string
+          enum:
+          - '16_9'
+          - '3_2'
+          - '4_3'
+        url:
+          type: string
+          format: uri
+        width:
+          type: integer
+        height:
+          type: integer
+        fallback:
+          type: boolean
     Classification:
       type: object
       properties:
@@ -239,15 +271,24 @@ components:
           $ref: '#/components/schemas/ClassificationEntity'
         family:
           type: boolean
-    Promoter:
+    ClassificationEntity:
       type: object
       properties:
         id:
           type: string
         name:
           type: string
-        description:
+    PriceRange:
+      type: object
+      properties:
+        type:
           type: string
+        currency:
+          type: string
+        min:
+          type: number
+        max:
+          type: number
     Page:
       type: object
       properties:
@@ -259,6 +300,69 @@ components:
           type: integer
         number:
           type: integer
+    EventDates:
+      type: object
+      properties:
+        start:
+          type: object
+          properties:
+            localDate:
+              type: string
+              format: date
+            localTime:
+              type: string
+              format: time
+            dateTime:
+              type: string
+              format: date-time
+            dateTBD:
+              type: boolean
+            timeTBD:
+              type: boolean
+            noSpecificTime:
+              type: boolean
+        end:
+          type: object
+          properties:
+            localDate:
+              type: string
+              format: date
+            dateTime:
+              type: string
+              format: date-time
+        status:
+          type: object
+          properties:
+            code:
+              type: string
+              enum:
+              - onsale
+              - offsale
+              - cancelled
+              - postponed
+              - rescheduled
+        timezone:
+          type: string
+    EventImages:
+      type: object
+      properties:
+        type:
+          type: string
+        id:
+          type: string
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/Image'
+    Promoter:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
     Links:
       type: object
       properties:
@@ -277,6 +381,55 @@ components:
           properties:
             href:
               type: string
+    Event:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+          description: Event name
+        type:
+          type: string
+        url:
+          type: string
+          format: uri
+          description: Ticketmaster event URL
+        locale:
+          type: string
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/Image'
+        dates:
+          $ref: '#/components/schemas/EventDates'
+        classifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/Classification'
+        promoter:
+          $ref: '#/components/schemas/Promoter'
+        priceRanges:
+          type: array
+          items:
+            $ref: '#/components/schemas/PriceRange'
+        seatmap:
+          type: object
+          properties:
+            staticUrl:
+              type: string
+              format: uri
+        _embedded:
+          type: object
+          properties:
+            venues:
+              type: array
+              items:
+                $ref: '#/components/schemas/Venue'
+            attractions:
+              type: array
+              items:
+                $ref: '#/components/schemas/Attraction'
     Venue:
       type: object
       properties:
@@ -334,35 +487,6 @@ components:
             $ref: '#/components/schemas/Image'
         upcomingEvents:
           type: object
-    EventImages:
-      type: object
-      properties:
-        type:
-          type: string
-        id:
-          type: string
-        images:
-          type: array
-          items:
-            $ref: '#/components/schemas/Image'
-    Image:
-      type: object
-      properties:
-        ratio:
-          type: string
-          enum:
-          - '16_9'
-          - '3_2'
-          - '4_3'
-        url:
-          type: string
-          format: uri
-        width:
-          type: integer
-        height:
-          type: integer
-        fallback:
-          type: boolean
     Attraction:
       type: object
       properties:
@@ -397,130 +521,6 @@ components:
             $ref: '#/components/schemas/Classification'
         upcomingEvents:
           type: object
-    Event:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-          description: Event name
-        type:
-          type: string
-        url:
-          type: string
-          format: uri
-          description: Ticketmaster event URL
-        locale:
-          type: string
-        images:
-          type: array
-          items:
-            $ref: '#/components/schemas/Image'
-        dates:
-          $ref: '#/components/schemas/EventDates'
-        classifications:
-          type: array
-          items:
-            $ref: '#/components/schemas/Classification'
-        promoter:
-          $ref: '#/components/schemas/Promoter'
-        priceRanges:
-          type: array
-          items:
-            $ref: '#/components/schemas/PriceRange'
-        seatmap:
-          type: object
-          properties:
-            staticUrl:
-              type: string
-              format: uri
-        _embedded:
-          type: object
-          properties:
-            venues:
-              type: array
-              items:
-                $ref: '#/components/schemas/Venue'
-            attractions:
-              type: array
-              items:
-                $ref: '#/components/schemas/Attraction'
-    EventDates:
-      type: object
-      properties:
-        start:
-          type: object
-          properties:
-            localDate:
-              type: string
-              format: date
-            localTime:
-              type: string
-              format: time
-            dateTime:
-              type: string
-              format: date-time
-            dateTBD:
-              type: boolean
-            timeTBD:
-              type: boolean
-            noSpecificTime:
-              type: boolean
-        end:
-          type: object
-          properties:
-            localDate:
-              type: string
-              format: date
-            dateTime:
-              type: string
-              format: date-time
-        status:
-          type: object
-          properties:
-            code:
-              type: string
-              enum:
-              - onsale
-              - offsale
-              - cancelled
-              - postponed
-              - rescheduled
-        timezone:
-          type: string
-    PriceRange:
-      type: object
-      properties:
-        type:
-          type: string
-        currency:
-          type: string
-        min:
-          type: number
-        max:
-          type: number
-    EventSearchResponse:
-      type: object
-      properties:
-        _embedded:
-          type: object
-          properties:
-            events:
-              type: array
-              items:
-                $ref: '#/components/schemas/Event'
-        _links:
-          $ref: '#/components/schemas/Links'
-        page:
-          $ref: '#/components/schemas/Page'
-    ClassificationEntity:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
   securitySchemes:
     ApiKeyQuery:
       type: apiKey

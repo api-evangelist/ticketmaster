@@ -103,20 +103,24 @@ paths:
                 $ref: '#/components/schemas/Venue'
 components:
   schemas:
-    VenueSearchResponse:
+    Image:
       type: object
       properties:
-        _embedded:
-          type: object
-          properties:
-            venues:
-              type: array
-              items:
-                $ref: '#/components/schemas/Venue'
-        _links:
-          $ref: '#/components/schemas/Links'
-        page:
-          $ref: '#/components/schemas/Page'
+        ratio:
+          type: string
+          enum:
+          - '16_9'
+          - '3_2'
+          - '4_3'
+        url:
+          type: string
+          format: uri
+        width:
+          type: integer
+        height:
+          type: integer
+        fallback:
+          type: boolean
     Page:
       type: object
       properties:
@@ -146,6 +150,20 @@ components:
           properties:
             href:
               type: string
+    VenueSearchResponse:
+      type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            venues:
+              type: array
+              items:
+                $ref: '#/components/schemas/Venue'
+        _links:
+          $ref: '#/components/schemas/Links'
+        page:
+          $ref: '#/components/schemas/Page'
     Venue:
       type: object
       properties:
@@ -203,24 +221,6 @@ components:
             $ref: '#/components/schemas/Image'
         upcomingEvents:
           type: object
-    Image:
-      type: object
-      properties:
-        ratio:
-          type: string
-          enum:
-          - '16_9'
-          - '3_2'
-          - '4_3'
-        url:
-          type: string
-          format: uri
-        width:
-          type: integer
-        height:
-          type: integer
-        fallback:
-          type: boolean
   securitySchemes:
     ApiKeyQuery:
       type: apiKey

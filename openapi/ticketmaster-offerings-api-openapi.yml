@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Ticketmaster Commerce Availability Offerings API
+  title: Ticketmaster Commerce Offerings API
   description: The Ticketmaster Commerce API enables developers to retrieve ticket availability, pricing, and purchase links for events. Provides access to event inventory status, top picks, and checkout URLs to redirect users to the Ticketmaster purchase flow.
   version: '2.0'
   contact:
@@ -48,16 +48,40 @@ paths:
           description: Event not found
 components:
   schemas:
-    TicketType:
+    PriceRange:
+      type: object
+      properties:
+        type:
+          type: string
+        currency:
+          type: string
+        min:
+          type: number
+        max:
+          type: number
+    EventOffers:
+      type: object
+      properties:
+        eventId:
+          type: string
+        ticketTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/TicketType'
+        priceRanges:
+          type: array
+          items:
+            $ref: '#/components/schemas/PriceRange'
+        offers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Offer'
+    PriceZone:
       type: object
       properties:
         id:
           type: string
         name:
-          type: string
-        description:
-          type: string
-        typeId:
           type: string
     OfferPrice:
       type: object
@@ -77,6 +101,17 @@ components:
                 type: string
               amount:
                 type: number
+    TicketType:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        typeId:
+          type: string
     Offer:
       type: object
       properties:
@@ -101,41 +136,6 @@ components:
               type: integer
             max:
               type: integer
-    EventOffers:
-      type: object
-      properties:
-        eventId:
-          type: string
-        ticketTypes:
-          type: array
-          items:
-            $ref: '#/components/schemas/TicketType'
-        priceRanges:
-          type: array
-          items:
-            $ref: '#/components/schemas/PriceRange'
-        offers:
-          type: array
-          items:
-            $ref: '#/components/schemas/Offer'
-    PriceRange:
-      type: object
-      properties:
-        type:
-          type: string
-        currency:
-          type: string
-        min:
-          type: number
-        max:
-          type: number
-    PriceZone:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
   securitySchemes:
     ApiKeyQuery:
       type: apiKey

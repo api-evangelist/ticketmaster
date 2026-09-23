@@ -95,6 +95,24 @@ paths:
                 $ref: '#/components/schemas/Attraction'
 components:
   schemas:
+    Image:
+      type: object
+      properties:
+        ratio:
+          type: string
+          enum:
+          - '16_9'
+          - '3_2'
+          - '4_3'
+        url:
+          type: string
+          format: uri
+        width:
+          type: integer
+        height:
+          type: integer
+        fallback:
+          type: boolean
     Classification:
       type: object
       properties:
@@ -112,6 +130,13 @@ components:
           $ref: '#/components/schemas/ClassificationEntity'
         family:
           type: boolean
+    ClassificationEntity:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
     Page:
       type: object
       properties:
@@ -141,24 +166,6 @@ components:
           properties:
             href:
               type: string
-    Image:
-      type: object
-      properties:
-        ratio:
-          type: string
-          enum:
-          - '16_9'
-          - '3_2'
-          - '4_3'
-        url:
-          type: string
-          format: uri
-        width:
-          type: integer
-        height:
-          type: integer
-        fallback:
-          type: boolean
     AttractionSearchResponse:
       type: object
       properties:
@@ -207,13 +214,6 @@ components:
             $ref: '#/components/schemas/Classification'
         upcomingEvents:
           type: object
-    ClassificationEntity:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
   securitySchemes:
     ApiKeyQuery:
       type: apiKey
