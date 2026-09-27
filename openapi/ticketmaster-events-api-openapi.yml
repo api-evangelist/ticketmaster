@@ -222,165 +222,6 @@ paths:
                 $ref: '#/components/schemas/EventImages'
 components:
   schemas:
-    EventSearchResponse:
-      type: object
-      properties:
-        _embedded:
-          type: object
-          properties:
-            events:
-              type: array
-              items:
-                $ref: '#/components/schemas/Event'
-        _links:
-          $ref: '#/components/schemas/Links'
-        page:
-          $ref: '#/components/schemas/Page'
-    Image:
-      type: object
-      properties:
-        ratio:
-          type: string
-          enum:
-          - '16_9'
-          - '3_2'
-          - '4_3'
-        url:
-          type: string
-          format: uri
-        width:
-          type: integer
-        height:
-          type: integer
-        fallback:
-          type: boolean
-    Classification:
-      type: object
-      properties:
-        primary:
-          type: boolean
-        segment:
-          $ref: '#/components/schemas/ClassificationEntity'
-        genre:
-          $ref: '#/components/schemas/ClassificationEntity'
-        subGenre:
-          $ref: '#/components/schemas/ClassificationEntity'
-        type:
-          $ref: '#/components/schemas/ClassificationEntity'
-        subType:
-          $ref: '#/components/schemas/ClassificationEntity'
-        family:
-          type: boolean
-    ClassificationEntity:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-    PriceRange:
-      type: object
-      properties:
-        type:
-          type: string
-        currency:
-          type: string
-        min:
-          type: number
-        max:
-          type: number
-    Page:
-      type: object
-      properties:
-        size:
-          type: integer
-        totalElements:
-          type: integer
-        totalPages:
-          type: integer
-        number:
-          type: integer
-    EventDates:
-      type: object
-      properties:
-        start:
-          type: object
-          properties:
-            localDate:
-              type: string
-              format: date
-            localTime:
-              type: string
-              format: time
-            dateTime:
-              type: string
-              format: date-time
-            dateTBD:
-              type: boolean
-            timeTBD:
-              type: boolean
-            noSpecificTime:
-              type: boolean
-        end:
-          type: object
-          properties:
-            localDate:
-              type: string
-              format: date
-            dateTime:
-              type: string
-              format: date-time
-        status:
-          type: object
-          properties:
-            code:
-              type: string
-              enum:
-              - onsale
-              - offsale
-              - cancelled
-              - postponed
-              - rescheduled
-        timezone:
-          type: string
-    EventImages:
-      type: object
-      properties:
-        type:
-          type: string
-        id:
-          type: string
-        images:
-          type: array
-          items:
-            $ref: '#/components/schemas/Image'
-    Promoter:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-    Links:
-      type: object
-      properties:
-        self:
-          type: object
-          properties:
-            href:
-              type: string
-        next:
-          type: object
-          properties:
-            href:
-              type: string
-        prev:
-          type: object
-          properties:
-            href:
-              type: string
     Event:
       type: object
       properties:
@@ -430,6 +271,155 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/Attraction'
+    PriceRange:
+      type: object
+      properties:
+        type:
+          type: string
+        currency:
+          type: string
+        min:
+          type: number
+        max:
+          type: number
+    Page:
+      type: object
+      properties:
+        size:
+          type: integer
+        totalElements:
+          type: integer
+        totalPages:
+          type: integer
+        number:
+          type: integer
+    Image:
+      type: object
+      properties:
+        ratio:
+          type: string
+          enum:
+          - '16_9'
+          - '3_2'
+          - '4_3'
+        url:
+          type: string
+          format: uri
+        width:
+          type: integer
+        height:
+          type: integer
+        fallback:
+          type: boolean
+    EventSearchResponse:
+      type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            events:
+              type: array
+              items:
+                $ref: '#/components/schemas/Event'
+        _links:
+          $ref: '#/components/schemas/Links'
+        page:
+          $ref: '#/components/schemas/Page'
+    EventImages:
+      type: object
+      properties:
+        type:
+          type: string
+        id:
+          type: string
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/Image'
+    Attraction:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        url:
+          type: string
+          format: uri
+        locale:
+          type: string
+        externalLinks:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: object
+              properties:
+                url:
+                  type: string
+                  format: uri
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/Image'
+        classifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/Classification'
+        upcomingEvents:
+          type: object
+    EventDates:
+      type: object
+      properties:
+        start:
+          type: object
+          properties:
+            localDate:
+              type: string
+              format: date
+            localTime:
+              type: string
+              format: time
+            dateTime:
+              type: string
+              format: date-time
+            dateTBD:
+              type: boolean
+            timeTBD:
+              type: boolean
+            noSpecificTime:
+              type: boolean
+        end:
+          type: object
+          properties:
+            localDate:
+              type: string
+              format: date
+            dateTime:
+              type: string
+              format: date-time
+        status:
+          type: object
+          properties:
+            code:
+              type: string
+              enum:
+              - onsale
+              - offsale
+              - cancelled
+              - postponed
+              - rescheduled
+        timezone:
+          type: string
+    ClassificationEntity:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
     Venue:
       type: object
       properties:
@@ -487,40 +477,50 @@ components:
             $ref: '#/components/schemas/Image'
         upcomingEvents:
           type: object
-    Attraction:
+    Links:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+        next:
+          type: object
+          properties:
+            href:
+              type: string
+        prev:
+          type: object
+          properties:
+            href:
+              type: string
+    Promoter:
       type: object
       properties:
         id:
           type: string
         name:
           type: string
+        description:
+          type: string
+    Classification:
+      type: object
+      properties:
+        primary:
+          type: boolean
+        segment:
+          $ref: '#/components/schemas/ClassificationEntity'
+        genre:
+          $ref: '#/components/schemas/ClassificationEntity'
+        subGenre:
+          $ref: '#/components/schemas/ClassificationEntity'
         type:
-          type: string
-        url:
-          type: string
-          format: uri
-        locale:
-          type: string
-        externalLinks:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: object
-              properties:
-                url:
-                  type: string
-                  format: uri
-        images:
-          type: array
-          items:
-            $ref: '#/components/schemas/Image'
-        classifications:
-          type: array
-          items:
-            $ref: '#/components/schemas/Classification'
-        upcomingEvents:
-          type: object
+          $ref: '#/components/schemas/ClassificationEntity'
+        subType:
+          $ref: '#/components/schemas/ClassificationEntity'
+        family:
+          type: boolean
   securitySchemes:
     ApiKeyQuery:
       type: apiKey

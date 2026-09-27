@@ -39,7 +39,7 @@ tags:
   - Entertainment
   - Event
   - Sports
-  - Tickets
+  - Ticketing
   - Venues
 tags_raw:
   - Commerce
@@ -66,7 +66,7 @@ apis:
   - Commerce
   - Partners
   - Reservations
-  - Tickets
+  - Ticketing
   tags_raw:
   - Commerce
   - Partner

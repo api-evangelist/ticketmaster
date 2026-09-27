@@ -103,6 +103,17 @@ paths:
                 $ref: '#/components/schemas/Venue'
 components:
   schemas:
+    Page:
+      type: object
+      properties:
+        size:
+          type: integer
+        totalElements:
+          type: integer
+        totalPages:
+          type: integer
+        number:
+          type: integer
     Image:
       type: object
       properties:
@@ -121,17 +132,6 @@ components:
           type: integer
         fallback:
           type: boolean
-    Page:
-      type: object
-      properties:
-        size:
-          type: integer
-        totalElements:
-          type: integer
-        totalPages:
-          type: integer
-        number:
-          type: integer
     Links:
       type: object
       properties:

@@ -95,6 +95,17 @@ paths:
                 $ref: '#/components/schemas/Attraction'
 components:
   schemas:
+    Page:
+      type: object
+      properties:
+        size:
+          type: integer
+        totalElements:
+          type: integer
+        totalPages:
+          type: integer
+        number:
+          type: integer
     Image:
       type: object
       properties:
@@ -113,59 +124,6 @@ components:
           type: integer
         fallback:
           type: boolean
-    Classification:
-      type: object
-      properties:
-        primary:
-          type: boolean
-        segment:
-          $ref: '#/components/schemas/ClassificationEntity'
-        genre:
-          $ref: '#/components/schemas/ClassificationEntity'
-        subGenre:
-          $ref: '#/components/schemas/ClassificationEntity'
-        type:
-          $ref: '#/components/schemas/ClassificationEntity'
-        subType:
-          $ref: '#/components/schemas/ClassificationEntity'
-        family:
-          type: boolean
-    ClassificationEntity:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-    Page:
-      type: object
-      properties:
-        size:
-          type: integer
-        totalElements:
-          type: integer
-        totalPages:
-          type: integer
-        number:
-          type: integer
-    Links:
-      type: object
-      properties:
-        self:
-          type: object
-          properties:
-            href:
-              type: string
-        next:
-          type: object
-          properties:
-            href:
-              type: string
-        prev:
-          type: object
-          properties:
-            href:
-              type: string
     AttractionSearchResponse:
       type: object
       properties:
@@ -214,6 +172,48 @@ components:
             $ref: '#/components/schemas/Classification'
         upcomingEvents:
           type: object
+    Links:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+        next:
+          type: object
+          properties:
+            href:
+              type: string
+        prev:
+          type: object
+          properties:
+            href:
+              type: string
+    ClassificationEntity:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    Classification:
+      type: object
+      properties:
+        primary:
+          type: boolean
+        segment:
+          $ref: '#/components/schemas/ClassificationEntity'
+        genre:
+          $ref: '#/components/schemas/ClassificationEntity'
+        subGenre:
+          $ref: '#/components/schemas/ClassificationEntity'
+        type:
+          $ref: '#/components/schemas/ClassificationEntity'
+        subType:
+          $ref: '#/components/schemas/ClassificationEntity'
+        family:
+          type: boolean
   securitySchemes:
     ApiKeyQuery:
       type: apiKey
