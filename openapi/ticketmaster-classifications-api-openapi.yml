@@ -50,6 +50,20 @@ paths:
                 $ref: '#/components/schemas/ClassificationSearchResponse'
 components:
   schemas:
+    ClassificationSearchResponse:
+      type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            classifications:
+              type: array
+              items:
+                type: object
+        _links:
+          $ref: '#/components/schemas/Links'
+        page:
+          $ref: '#/components/schemas/Page'
     Links:
       type: object
       properties:
@@ -68,20 +82,6 @@ components:
           properties:
             href:
               type: string
-    ClassificationSearchResponse:
-      type: object
-      properties:
-        _embedded:
-          type: object
-          properties:
-            classifications:
-              type: array
-              items:
-                type: object
-        _links:
-          $ref: '#/components/schemas/Links'
-        page:
-          $ref: '#/components/schemas/Page'
     Page:
       type: object
       properties:

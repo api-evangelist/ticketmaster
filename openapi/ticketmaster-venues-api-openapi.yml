@@ -103,6 +103,20 @@ paths:
                 $ref: '#/components/schemas/Venue'
 components:
   schemas:
+    VenueSearchResponse:
+      type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            venues:
+              type: array
+              items:
+                $ref: '#/components/schemas/Venue'
+        _links:
+          $ref: '#/components/schemas/Links'
+        page:
+          $ref: '#/components/schemas/Page'
     Page:
       type: object
       properties:
@@ -132,38 +146,6 @@ components:
           type: integer
         fallback:
           type: boolean
-    Links:
-      type: object
-      properties:
-        self:
-          type: object
-          properties:
-            href:
-              type: string
-        next:
-          type: object
-          properties:
-            href:
-              type: string
-        prev:
-          type: object
-          properties:
-            href:
-              type: string
-    VenueSearchResponse:
-      type: object
-      properties:
-        _embedded:
-          type: object
-          properties:
-            venues:
-              type: array
-              items:
-                $ref: '#/components/schemas/Venue'
-        _links:
-          $ref: '#/components/schemas/Links'
-        page:
-          $ref: '#/components/schemas/Page'
     Venue:
       type: object
       properties:
@@ -221,6 +203,24 @@ components:
             $ref: '#/components/schemas/Image'
         upcomingEvents:
           type: object
+    Links:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+        next:
+          type: object
+          properties:
+            href:
+              type: string
+        prev:
+          type: object
+          properties:
+            href:
+              type: string
   securitySchemes:
     ApiKeyQuery:
       type: apiKey

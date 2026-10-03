@@ -95,49 +95,6 @@ paths:
                 $ref: '#/components/schemas/Attraction'
 components:
   schemas:
-    Page:
-      type: object
-      properties:
-        size:
-          type: integer
-        totalElements:
-          type: integer
-        totalPages:
-          type: integer
-        number:
-          type: integer
-    Image:
-      type: object
-      properties:
-        ratio:
-          type: string
-          enum:
-          - '16_9'
-          - '3_2'
-          - '4_3'
-        url:
-          type: string
-          format: uri
-        width:
-          type: integer
-        height:
-          type: integer
-        fallback:
-          type: boolean
-    AttractionSearchResponse:
-      type: object
-      properties:
-        _embedded:
-          type: object
-          properties:
-            attractions:
-              type: array
-              items:
-                $ref: '#/components/schemas/Attraction'
-        _links:
-          $ref: '#/components/schemas/Links'
-        page:
-          $ref: '#/components/schemas/Page'
     Attraction:
       type: object
       properties:
@@ -172,6 +129,56 @@ components:
             $ref: '#/components/schemas/Classification'
         upcomingEvents:
           type: object
+    ClassificationEntity:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    Page:
+      type: object
+      properties:
+        size:
+          type: integer
+        totalElements:
+          type: integer
+        totalPages:
+          type: integer
+        number:
+          type: integer
+    AttractionSearchResponse:
+      type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            attractions:
+              type: array
+              items:
+                $ref: '#/components/schemas/Attraction'
+        _links:
+          $ref: '#/components/schemas/Links'
+        page:
+          $ref: '#/components/schemas/Page'
+    Image:
+      type: object
+      properties:
+        ratio:
+          type: string
+          enum:
+          - '16_9'
+          - '3_2'
+          - '4_3'
+        url:
+          type: string
+          format: uri
+        width:
+          type: integer
+        height:
+          type: integer
+        fallback:
+          type: boolean
     Links:
       type: object
       properties:
@@ -190,13 +197,6 @@ components:
           properties:
             href:
               type: string
-    ClassificationEntity:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
     Classification:
       type: object
       properties:
