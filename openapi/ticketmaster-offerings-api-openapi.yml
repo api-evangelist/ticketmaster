@@ -48,28 +48,6 @@ paths:
           description: Event not found
 components:
   schemas:
-    PriceRange:
-      type: object
-      properties:
-        type:
-          type: string
-        currency:
-          type: string
-        min:
-          type: number
-        max:
-          type: number
-    TicketType:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        typeId:
-          type: string
     OfferPrice:
       type: object
       properties:
@@ -129,6 +107,17 @@ components:
               type: integer
             max:
               type: integer
+    TicketType:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        typeId:
+          type: string
     PriceZone:
       type: object
       properties:
@@ -136,6 +125,17 @@ components:
           type: string
         name:
           type: string
+    PriceRange:
+      type: object
+      properties:
+        type:
+          type: string
+        currency:
+          type: string
+        min:
+          type: number
+        max:
+          type: number
   securitySchemes:
     ApiKeyQuery:
       type: apiKey

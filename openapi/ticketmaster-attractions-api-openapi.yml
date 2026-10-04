@@ -95,6 +95,55 @@ paths:
                 $ref: '#/components/schemas/Attraction'
 components:
   schemas:
+    Classification:
+      type: object
+      properties:
+        primary:
+          type: boolean
+        segment:
+          $ref: '#/components/schemas/ClassificationEntity'
+        genre:
+          $ref: '#/components/schemas/ClassificationEntity'
+        subGenre:
+          $ref: '#/components/schemas/ClassificationEntity'
+        type:
+          $ref: '#/components/schemas/ClassificationEntity'
+        subType:
+          $ref: '#/components/schemas/ClassificationEntity'
+        family:
+          type: boolean
+    AttractionSearchResponse:
+      type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            attractions:
+              type: array
+              items:
+                $ref: '#/components/schemas/Attraction'
+        _links:
+          $ref: '#/components/schemas/Links'
+        page:
+          $ref: '#/components/schemas/Page'
+    ClassificationEntity:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    Page:
+      type: object
+      properties:
+        size:
+          type: integer
+        totalElements:
+          type: integer
+        totalPages:
+          type: integer
+        number:
+          type: integer
     Attraction:
       type: object
       properties:
@@ -129,56 +178,6 @@ components:
             $ref: '#/components/schemas/Classification'
         upcomingEvents:
           type: object
-    ClassificationEntity:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-    Page:
-      type: object
-      properties:
-        size:
-          type: integer
-        totalElements:
-          type: integer
-        totalPages:
-          type: integer
-        number:
-          type: integer
-    AttractionSearchResponse:
-      type: object
-      properties:
-        _embedded:
-          type: object
-          properties:
-            attractions:
-              type: array
-              items:
-                $ref: '#/components/schemas/Attraction'
-        _links:
-          $ref: '#/components/schemas/Links'
-        page:
-          $ref: '#/components/schemas/Page'
-    Image:
-      type: object
-      properties:
-        ratio:
-          type: string
-          enum:
-          - '16_9'
-          - '3_2'
-          - '4_3'
-        url:
-          type: string
-          format: uri
-        width:
-          type: integer
-        height:
-          type: integer
-        fallback:
-          type: boolean
     Links:
       type: object
       properties:
@@ -197,22 +196,23 @@ components:
           properties:
             href:
               type: string
-    Classification:
+    Image:
       type: object
       properties:
-        primary:
-          type: boolean
-        segment:
-          $ref: '#/components/schemas/ClassificationEntity'
-        genre:
-          $ref: '#/components/schemas/ClassificationEntity'
-        subGenre:
-          $ref: '#/components/schemas/ClassificationEntity'
-        type:
-          $ref: '#/components/schemas/ClassificationEntity'
-        subType:
-          $ref: '#/components/schemas/ClassificationEntity'
-        family:
+        ratio:
+          type: string
+          enum:
+          - '16_9'
+          - '3_2'
+          - '4_3'
+        url:
+          type: string
+          format: uri
+        width:
+          type: integer
+        height:
+          type: integer
+        fallback:
           type: boolean
   securitySchemes:
     ApiKeyQuery:

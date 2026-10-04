@@ -103,49 +103,6 @@ paths:
                 $ref: '#/components/schemas/Venue'
 components:
   schemas:
-    VenueSearchResponse:
-      type: object
-      properties:
-        _embedded:
-          type: object
-          properties:
-            venues:
-              type: array
-              items:
-                $ref: '#/components/schemas/Venue'
-        _links:
-          $ref: '#/components/schemas/Links'
-        page:
-          $ref: '#/components/schemas/Page'
-    Page:
-      type: object
-      properties:
-        size:
-          type: integer
-        totalElements:
-          type: integer
-        totalPages:
-          type: integer
-        number:
-          type: integer
-    Image:
-      type: object
-      properties:
-        ratio:
-          type: string
-          enum:
-          - '16_9'
-          - '3_2'
-          - '4_3'
-        url:
-          type: string
-          format: uri
-        width:
-          type: integer
-        height:
-          type: integer
-        fallback:
-          type: boolean
     Venue:
       type: object
       properties:
@@ -203,6 +160,20 @@ components:
             $ref: '#/components/schemas/Image'
         upcomingEvents:
           type: object
+    VenueSearchResponse:
+      type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            venues:
+              type: array
+              items:
+                $ref: '#/components/schemas/Venue'
+        _links:
+          $ref: '#/components/schemas/Links'
+        page:
+          $ref: '#/components/schemas/Page'
     Links:
       type: object
       properties:
@@ -221,6 +192,35 @@ components:
           properties:
             href:
               type: string
+    Page:
+      type: object
+      properties:
+        size:
+          type: integer
+        totalElements:
+          type: integer
+        totalPages:
+          type: integer
+        number:
+          type: integer
+    Image:
+      type: object
+      properties:
+        ratio:
+          type: string
+          enum:
+          - '16_9'
+          - '3_2'
+          - '4_3'
+        url:
+          type: string
+          format: uri
+        width:
+          type: integer
+        height:
+          type: integer
+        fallback:
+          type: boolean
   securitySchemes:
     ApiKeyQuery:
       type: apiKey
