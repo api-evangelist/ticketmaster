@@ -162,6 +162,12 @@ apis:
   - type: OpenAPI
     url: openapi/ticketmaster-venues-api-openapi.yml
 common:
+  - type: Plans
+    url: plans/ticketmaster-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/ticketmaster-rate-limits.yml
+  - type: FinOps
+    url: finops/ticketmaster-finops.yml
   - type: AgenticAccess
     url: agentic-access/ticketmaster-agentic-access.yml
   - type: DomainSecurity
