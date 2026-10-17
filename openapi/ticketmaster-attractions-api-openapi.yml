@@ -95,22 +95,23 @@ paths:
                 $ref: '#/components/schemas/Attraction'
 components:
   schemas:
-    Classification:
+    Image:
       type: object
       properties:
-        primary:
-          type: boolean
-        segment:
-          $ref: '#/components/schemas/ClassificationEntity'
-        genre:
-          $ref: '#/components/schemas/ClassificationEntity'
-        subGenre:
-          $ref: '#/components/schemas/ClassificationEntity'
-        type:
-          $ref: '#/components/schemas/ClassificationEntity'
-        subType:
-          $ref: '#/components/schemas/ClassificationEntity'
-        family:
+        ratio:
+          type: string
+          enum:
+          - '16_9'
+          - '3_2'
+          - '4_3'
+        url:
+          type: string
+          format: uri
+        width:
+          type: integer
+        height:
+          type: integer
+        fallback:
           type: boolean
     AttractionSearchResponse:
       type: object
@@ -126,13 +127,6 @@ components:
           $ref: '#/components/schemas/Links'
         page:
           $ref: '#/components/schemas/Page'
-    ClassificationEntity:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
     Page:
       type: object
       properties:
@@ -144,6 +138,13 @@ components:
           type: integer
         number:
           type: integer
+    ClassificationEntity:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
     Attraction:
       type: object
       properties:
@@ -178,6 +179,23 @@ components:
             $ref: '#/components/schemas/Classification'
         upcomingEvents:
           type: object
+    Classification:
+      type: object
+      properties:
+        primary:
+          type: boolean
+        segment:
+          $ref: '#/components/schemas/ClassificationEntity'
+        genre:
+          $ref: '#/components/schemas/ClassificationEntity'
+        subGenre:
+          $ref: '#/components/schemas/ClassificationEntity'
+        type:
+          $ref: '#/components/schemas/ClassificationEntity'
+        subType:
+          $ref: '#/components/schemas/ClassificationEntity'
+        family:
+          type: boolean
     Links:
       type: object
       properties:
@@ -196,24 +214,6 @@ components:
           properties:
             href:
               type: string
-    Image:
-      type: object
-      properties:
-        ratio:
-          type: string
-          enum:
-          - '16_9'
-          - '3_2'
-          - '4_3'
-        url:
-          type: string
-          format: uri
-        width:
-          type: integer
-        height:
-          type: integer
-        fallback:
-          type: boolean
   securitySchemes:
     ApiKeyQuery:
       type: apiKey
