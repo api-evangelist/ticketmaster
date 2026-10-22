@@ -65,3 +65,59 @@
     detected: '2026-10-20'
   status: not-a-workflow
   arazzo: null
+- slug: ticketmaster-apis-guru-openapi-directory
+  label: APIs.guru OpenAPI Directory
+  partner: apis-guru
+  partner_name: APIs.guru OpenAPI Directory
+  category: API definition directory listing (OpenAPI)
+  type: register
+  channel: standard-directory
+  evidence: https://apis.guru/
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: APIs.guru OpenAPI Directory
+    spec_file: null
+    standard: APIs.guru OpenAPI Directory
+    role: listed-in-directory
+    directory_provider: ticketmaster.com
+    matched_domain: ticketmaster.com
+    matched_by: domain
+    apis_listed: 3
+    version_count: 3
+    first_added: '2020-07-13'
+    last_updated: '2021-06-21'
+    origin_publisher_hosted: false
+    origin_hosts:
+    - raw.githubusercontent.com
+    categories:
+    - ecommerce
+    own_openapi_files: 7
+    listings:
+    - key: ticketmaster.com:commerce
+      title: Commerce API
+      preferred: v2
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/ticketmaster.com/commerce/v2/swagger.json
+      origin_url: https://raw.githubusercontent.com/ticketmaster-api/ticketmaster-api.github.io/dev/_data/orgs/commerce-api/v2/api.json
+      openapi_version: '2.0'
+    - key: ticketmaster.com:discovery
+      title: Discovery API
+      preferred: v2
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/ticketmaster.com/discovery/v2/openapi.json
+      origin_url: https://raw.githubusercontent.com/ticketmaster-api/ticketmaster-api.github.io/dev/_data/orgs/discovery-api/v2/api.json
+      openapi_version: 3.0.0
+    - key: ticketmaster.com:publish
+      title: ticketmaster publish api
+      preferred: v2
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/ticketmaster.com/publish/v2/openapi.json
+      origin_url: https://raw.githubusercontent.com/ticketmaster-api/ticketmaster-api.github.io/dev/_data/orgs/publish-api/v1/api.json
+      openapi_version: 3.0.0
+    signal_note: 'participation only: a community directory listing (APIs.guru collects definitions; the provider
+      did not file them). Signals: version_count, apis_listed, origin_publisher_hosted.'
+    detected_by: sweep-openapi-directory-apis-guru.py
+    detected: '2026-10-22'
+  status: not-a-workflow
+  arazzo: null
