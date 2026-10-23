@@ -162,6 +162,8 @@ apis:
   - type: OpenAPI
     url: openapi/ticketmaster-venues-api-openapi.yml
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/ticketmaster/overview
   - type: Plans
     url: plans/ticketmaster-plans-pricing.yml
   - type: RateLimits
