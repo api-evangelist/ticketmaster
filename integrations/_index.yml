@@ -121,3 +121,33 @@
     detected: '2026-10-22'
   status: not-a-workflow
   arazzo: null
+- slug: ticketmaster-octo-member-directory-octo-travel
+  label: OCTO member directory (octo.travel)
+  partner_name: OCTO member directory (octo.travel)
+  category: OCTO standards body membership (tours, activities & attractions connectivity)
+  type: register
+  channel: standard-directory
+  evidence: https://octo.travel/members
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: OCTO member directory (octo.travel)
+    standard: OCTO (Open Connectivity for Tours, Activities & Attractions) API specification
+    spec_file: null
+    spec_url: https://app.swaggerhub.com/apis-docs/OCTO-API/OCTO-API/1.0
+    standard_repo: octo
+    role: technology-member
+    registrations:
+    - registered_name: Ticketmaster
+      register_status: member
+      register_id: y9g4M8bW
+      matched_domain: ticketmaster.com
+      matched_by: domain
+      member_type: technology-member
+      identity: wikidata Q2609162 'Ticketmaster' P856 https://www.ticketmaster.com
+    detected_by: sweep-octo-tours-activities.py
+    detected: '2026-10-23'
+    signal_note: 'participation only: OCTO standards-body membership; membership certifies nothing'
+    identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
+  status: not-a-workflow
+  arazzo: null
