@@ -1,79 +1,87 @@
 {
+  "info": {
+    "_postman_id": "d9f14e1e-7a4d-48b4-ba85-76ad8fe69754",
+    "name": "Ticketmaster Discovery Classifications API",
+    "description": "The Ticketmaster Discovery API allows developers to search for events, attractions, venues, and classifications across the Ticketmaster platform. Access over 230,000 events across the United States, Canada, Mexico, Australia, New Zealand, the UK, Ireland, and Europe. Content sources include Ticketmaster, Universe, FrontGate Tickets, and Ticketmaster Resale (TMR). Default quota is 5,000 API calls per day with a rate limit of 5 requests per second.\n\nContact Support:\n Name: Ticketmaster Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:15:29.000Z",
+    "updatedAt": "2026-10-22T01:15:29.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d9f14e1e-7a4d-48b4-ba85-76ad8fe69754"
+  },
   "item": [
     {
-      "id": "b364b535-0b0d-491b-827d-1159156f46b4",
-      "name": "Classifications",
-      "description": {
-        "content": "Browse event segments, genres, and sub-genres",
-        "type": "text/plain"
-      },
+      "name": "classifications.json",
       "item": [
         {
-          "id": "33cf4417-0f63-4de5-8e34-44d32e8caf7b",
           "name": "Search Classifications",
+          "id": "c58615dd-1b93-441a-8139-b86f4bca214a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Search Classifications",
-            "description": {
-              "content": "Browse event segments, genres, and sub-genres available on Ticketmaster.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "classifications.json"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "apikey",
-                  "value": "<string>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "keyword",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "size",
-                  "value": "<integer>"
-                },
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "<integer>"
-                }
-              ],
-              "variable": []
-            },
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "url": {
+              "raw": "{{baseUrl}}/classifications.json?apikey=<string>&keyword=<string>&size=<integer>&page=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "classifications.json"
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "apikey",
+                  "value": "<string>"
+                },
+                {
+                  "key": "keyword",
+                  "value": "<string>"
+                },
+                {
+                  "key": "size",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "page",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Browse event segments, genres, and sub-genres available on Ticketmaster."
           },
           "response": [
             {
-              "id": "52d6b5d6-3db8-4207-9b49-cf96da760f22",
+              "id": "6ef46495-0d84-4c32-b658-7dfd0cfe026f",
               "name": "Classification search results",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "url": {
-                  "path": [
-                    "classifications.json"
-                  ],
+                  "raw": "{{baseUrl}}/classifications.json?apikey=<API Key>&keyword=<string>&size=<integer>&page=<integer>",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    "classifications.json"
+                  ],
                   "query": [
                     {
+                      "description": "(Required) ",
                       "key": "apikey",
-                      "value": "<string>"
+                      "value": "<API Key>"
                     },
                     {
                       "key": "keyword",
@@ -86,51 +94,36 @@
                     {
                       "key": "page",
                       "value": "<integer>"
-                    },
-                    {
-                      "key": "apikey",
-                      "value": "<API Key>"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"_embedded\": {},\n  \"_links\": {\n    \"self\": {\n      \"href\": \"string\"\n    },\n    \"next\": {\n      \"href\": \"string\"\n    },\n    \"prev\": {\n      \"href\": \"string\"\n    }\n  },\n  \"page\": {\n    \"size\": 310,\n    \"totalElements\": 3972,\n    \"totalPages\": 2960,\n    \"number\": 420\n  }\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"_embedded\": {},\n  \"_links\": {\n    \"self\": {\n      \"href\": \"<string>\"\n    },\n    \"next\": {\n      \"href\": \"<string>\"\n    },\n    \"prev\": {\n      \"href\": \"<string>\"\n    }\n  },\n  \"page\": {\n    \"size\": \"<integer>\",\n    \"totalElements\": \"<integer>\",\n    \"totalPages\": \"<integer>\",\n    \"number\": \"<integer>\"\n  }\n}",
+              "createdAt": "2026-10-22T01:15:30.000Z",
+              "updatedAt": "2026-10-22T01:15:30.000Z",
+              "uid": "35240-6ef46495-0d84-4c32-b658-7dfd0cfe026f"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T01:15:30.000Z",
+          "updatedAt": "2026-10-22T01:15:30.000Z",
+          "uid": "35240-c58615dd-1b93-441a-8139-b86f4bca214a"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.ticketmaster.com/discovery/v2",
-      "key": "baseUrl"
+      "id": "47985041-7ced-4a7b-917b-ea4233338297",
+      "createdAt": "2026-10-22T01:15:30.000Z",
+      "updatedAt": "2026-10-22T01:15:30.000Z",
+      "uid": "35240-47985041-7ced-4a7b-917b-ea4233338297"
     }
   ],
   "auth": {
@@ -138,25 +131,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "apikey"
+        "value": "apikey",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "query"
+        "value": "query",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "bc3a9fa9-0488-47c3-bbc4-849ddff2f097",
-    "name": "Ticketmaster Discovery Classifications API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Ticketmaster Discovery API allows developers to search for events, attractions, venues, and classifications across the Ticketmaster platform. Access over 230,000 events across the United States, Canada, Mexico, Australia, New Zealand, the UK, Ireland, and Europe. Content sources include Ticketmaster, Universe, FrontGate Tickets, and Ticketmaster Resale (TMR). Default quota is 5,000 API calls per day with a rate limit of 5 requests per second.\n\nContact Support:\n Name: Ticketmaster Developer Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.ticketmaster.com/discovery/v2"
     }
-  }
+  ]
 }
