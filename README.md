@@ -1,4 +1,4 @@
-# Ticketmaster (ticketmaster)
+# Ticketmaster
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,105 +66,172 @@
 
 Ticketmaster is the world's largest live entertainment ticketing company, providing access to tickets for concerts, sports, theater, and other live events globally. Their developer platform offers APIs for event discovery, ticket commerce, venue data, and partner integrations, giving developers access to over 230,000 events across dozens of countries.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/ticketmaster/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/ticketmaster/refs/heads/main/apis.yml)
+**Areas:** Commerce · Concerts · Entertainment · Event · Sports · Ticketing · Venues
 
-## Tags
+## Ticketmaster on APIs.io
 
-- Commerce
-- Concerts
-- Entertainment
-- Events
-- Sports
-- Tickets
-- Venues
+Everything profiled for Ticketmaster is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/ticketmaster/](https://apis.io/providers/ticketmaster/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (8)
 
-- **Created:** 2025-01-08
-- **Modified:** 2026-05-19
+- [Ticketmaster Partner API](https://apis.io/apis/ticketmaster/ticketmaster-partner-api/) — The Ticketmaster Partner API is a restricted API for authorized distribution partners that enables reserving, purchasing, and retrieving ticket and event…
+- [Ticketmaster Availability API](https://apis.io/apis/ticketmaster/ticketmaster-availability-api/) — Check ticket availability for events
+- [Ticketmaster Offerings API](https://apis.io/apis/ticketmaster/ticketmaster-offerings-api/) — Retrieve ticket offerings and pricing
+- [Ticketmaster Attractions API](https://apis.io/apis/ticketmaster/ticketmaster-attractions-api/) — Search artists, sports teams, and other attractions
+- [Ticketmaster Classifications API](https://apis.io/apis/ticketmaster/ticketmaster-classifications-api/) — Browse event segments, genres, and sub-genres
+- [Ticketmaster Events API](https://apis.io/apis/ticketmaster/ticketmaster-events-api/) — Search and retrieve live event information
+- [Ticketmaster Suggestions API](https://apis.io/apis/ticketmaster/ticketmaster-suggestions-api/) — Search suggestions and autocomplete
+- [Ticketmaster Venues API](https://apis.io/apis/ticketmaster/ticketmaster-venues-api/) — Search and retrieve venue information
 
-## APIs
+### Published properties
 
-### Ticketmaster Discovery API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-The Ticketmaster Discovery API allows developers to search for events, attractions, venues, and classifications across the Ticketmaster platform. Provides access to over 230,000 events across the United States, Canada, Mexico, Australia, New Zealand, the UK, Ireland, and Europe. Content sources include Ticketmaster, Universe, FrontGate Tickets, and Ticketmaster Resale (TMR). Authentication is via API key in the query string or header.
+#### Agentic access (1)
 
-- **Human URL:** [https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/](https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/)
-- **Base URL:** `https://app.ticketmaster.com/discovery/v2`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Ticketmaster Agentic Access](https://apis.io/agentic-access/ticketmaster/ticketmaster-agentic-access/)
 
-- Attractions
-- Classifications
-- Events
-- Search
-- Venues
+#### JSON Schema (2)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/)
-- [Portal](https://developer.ticketmaster.com)
-- [OpenAPI](openapi/ticketmaster-discovery-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Ticketmaster Event](https://apis.io/schemas/ticketmaster/ticketmaster-event/)
+- [Ticketmaster Venue](https://apis.io/schemas/ticketmaster/ticketmaster-venue/)
 
-### Ticketmaster Commerce API
+#### JSON Structure (1)
 
-The Ticketmaster Commerce API enables developers to build ticket purchasing flows, retrieve event inventory, check seat availability, and manage ticket orders. Provides access to price ranges, ticket limits, and purchase links.
+Data models expressed in JSON Structure.
 
-- **Human URL:** [https://developer.ticketmaster.com/products-and-docs/apis/getting-started/](https://developer.ticketmaster.com/products-and-docs/apis/getting-started/)
-- **Base URL:** `https://app.ticketmaster.com/commerce/v2`
+- [Ticketmaster Event Structure](https://apis.io/json-structure/ticketmaster/ticketmaster-event-structure/)
 
-#### Tags
+#### JSON-LD (1)
 
-- Commerce
-- Inventory
-- Orders
-- Tickets
+Linked-data contexts for the provider's vocabulary.
 
-#### Properties
+- [Ticketmaster Context](https://apis.io/jsonld/ticketmaster/ticketmaster-context/)
 
-- [Documentation](https://developer.ticketmaster.com/products-and-docs/apis/getting-started/)
-- [OpenAPI](openapi/ticketmaster-commerce-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/ticketmaster-commerce.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ticketmaster-commerce.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Vocabulary (1)
 
-### Ticketmaster Partner API
+The provider's domain terms, defined.
 
-The Ticketmaster Partner API is a restricted API for authorized distribution partners that enables reserving, purchasing, and retrieving ticket and event information programmatically. Authentication uses API key via query parameter or x-api-key header.
+- [Ticketmaster Vocabulary](https://apis.io/vocabularies/ticketmaster/ticketmaster-vocabulary/)
 
-- **Human URL:** [https://developer.ticketmaster.com/products-and-docs/apis/partner/](https://developer.ticketmaster.com/products-and-docs/apis/partner/)
-- **Base URL:** `https://app.ticketmaster.com/partners/v1`
+#### Examples (3)
 
-#### Tags
+Example requests and responses.
 
-- Commerce
-- Partner
-- Reservations
-- Tickets
+- [Ticketmaster Get Event Offers Example](https://apis.io/examples/ticketmaster/ticketmaster-get-event-offers-example/)
+- [Ticketmaster Search Events Example](https://apis.io/examples/ticketmaster/ticketmaster-search-events-example/)
+- [Ticketmaster Search Venues Example](https://apis.io/examples/ticketmaster/ticketmaster-search-venues-example/)
 
-#### Properties
+#### Collections (8)
 
-- [Documentation](https://developer.ticketmaster.com/products-and-docs/apis/partner/)
-- [F A Q](https://developer.ticketmaster.com/support/partner-api-faq/)
-- [Postman Collection](collections/ticketmaster-commerce.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ticketmaster-commerce.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Postman and Open Collection request collections.
 
-## Common Properties
+- [Ticketmaster Discovery Attractions API](https://apis.io/collections/ticketmaster/open-ticketmaster-attractions-api/)
+- [Ticketmaster Commerce Availability API](https://apis.io/collections/ticketmaster/open-ticketmaster-availability-api/)
+- [Ticketmaster Discovery Classifications API](https://apis.io/collections/ticketmaster/open-ticketmaster-classifications-api/)
+- [Ticketmaster Commerce API](https://apis.io/collections/ticketmaster/open-ticketmaster-commerce/)
+- [Ticketmaster Discovery Events API](https://apis.io/collections/ticketmaster/open-ticketmaster-events-api/)
+- [Ticketmaster Commerce Availability Offerings API](https://apis.io/collections/ticketmaster/open-ticketmaster-offerings-api/)
+- [Ticketmaster Discovery Suggestions API](https://apis.io/collections/ticketmaster/open-ticketmaster-suggestions-api/)
+- [Ticketmaster Discovery Venues API](https://apis.io/collections/ticketmaster/open-ticketmaster-venues-api/)
 
-- [GitHub Organization](https://github.com/ticketmaster)
-- [Portal](https://developer.ticketmaster.com)
-- [Documentation](https://developer.ticketmaster.com/products-and-docs/)
-- [Getting Started](https://developer.ticketmaster.com/products-and-docs/apis/getting-started/)
-- [A P I  Explorer](https://developer.ticketmaster.com/api-explorer/v2/)
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Ticketmaster — jsonschema rules](https://apis.io/rules/ticketmaster/ticketmaster-jsonschema-spectral-rules/)
+- [Ticketmaster API Rules](https://apis.io/rules/ticketmaster/ticketmaster-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Ticketmaster Authentication](https://apis.io/security/ticketmaster/ticketmaster-authentication/)
+- [Ticketmaster Domain Security](https://apis.io/security/ticketmaster/ticketmaster-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Ticketmaster Plans Pricing](https://apis.io/plans/ticketmaster/ticketmaster-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Ticketmaster Rate Limits](https://apis.io/rate-limits/ticketmaster/ticketmaster-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Ticketmaster Finops](https://apis.io/finops/ticketmaster/ticketmaster-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.ticketmaster.com)
+- [Documentation](https://developer.ticketmaster.com/products-and-docs/)
+- [Getting started](https://developer.ticketmaster.com/products-and-docs/apis/getting-started/)
 - [Blog](https://developer.ticketmaster.com/blog/)
-- [Twitter](https://twitter.com/ticketmaster)
-- [LinkedIn](https://www.linkedin.com/company/ticketmaster)
-- [Terms of Service](https://developer.ticketmaster.com/support/terms-of-use/)
-- [Privacy Policy](https://www.ticketmaster.com/h/privacy.html)
-- [JSON-LD](json-ld/ticketmaster-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [JSON Schema](json-schema/ticketmaster-event-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [Terms of service](https://developer.ticketmaster.com/support/terms-of-use/)
+- [Privacy policy](https://www.ticketmaster.com/h/privacy.html)
+- [GitHub](https://github.com/ticketmaster)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 38.2** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 53.5 |
+| Contract governance | 13.6 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 42.9 |
+| Access clarity | 26.3 |
+
+**Agent readiness 20.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 24.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/ticketmaster/](https://apis.io/providers/ticketmaster/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Ticketmaster: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/ticketmaster/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
